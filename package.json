@@ -1,0 +1,26 @@
+{
+  "name": "instagrab-node",
+  "version": "1.0.0",
+  "description": "An application for an application – written in Node.js and React.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sven-straubinger/instagrab-node.git"
+  },
+  "keywords": [
+    "Node.js",
+    "React",
+    "Instagram",
+    "Google",
+    "Maps"
+  ],
+  "author": "Sven Straubinger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sven-straubinger/instagrab-node/issues"
+  },
+  "homepage": "https://github.com/sven-straubinger/instagrab-node#readme"
+}
