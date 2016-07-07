@@ -6,7 +6,7 @@ ReactDOM.render(React.createElement(
   'h1',
   null,
   'Hello, world!'
-), document.getElementById('example'));
+), document.getElementById('container'));
 
 },{"react":169,"react-dom":29}],2:[function(require,module,exports){
 (function (process){
