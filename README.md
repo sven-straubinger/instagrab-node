@@ -6,7 +6,7 @@ An application for an application – written in [Node.js](https://nodejs.org/en
 
 * it makes use of `ECMAScript 2016`
 * JSX syntax is converted with [Babel](https://babeljs.io)
-* build your bundle with `browserify`: `browserify -t [ babelify ] main.js -o bundle.js`
+* build your bundle with `browserify`: `browserify -t [ babelify ] main.js -o build/bundle.js`
   * if `browserify` is not installed, use `npm install browserify -g`
   * see [http://browserify.org] for detailed information
 
