@@ -16,8 +16,10 @@ Note: By default, React will be in development mode, which is slower, and not ad
 
 ## Components
 
+```
 - App
 -- Map
 -- Navigation
 --- SearchBar
 --- *
+```
