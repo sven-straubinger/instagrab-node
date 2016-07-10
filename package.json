@@ -36,7 +36,7 @@
     ]
   },
   "scripts": {
-    "build": "browserify ./index.js -t babelify -o bundle.js",
-    "start": "watchify ./index.js -v -t babelify -o bundle.js"
+    "build": "browserify -t [ babelify ] main.js -o build/bundle.js",
+    "start": "watchify -v -t [ babelify ] main.js -o build/bundle.js"
   }
 }
