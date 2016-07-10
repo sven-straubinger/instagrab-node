@@ -66,7 +66,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var App = require('./components/app');
 
-ReactDOM.render(React.createElement(App, null), document.getElementById('container'));
+ReactDOM.render(React.createElement(App, null), document.getElementById('content'));
 
 },{"./components/app":1,"react":172,"react-dom":32}],5:[function(require,module,exports){
 (function (process){
