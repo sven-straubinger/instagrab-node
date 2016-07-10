@@ -40,3 +40,10 @@ Note: By default, React will be in development mode, which is slower, and not ad
 ```
 TBD
 ```
+
+## Outlook
+
+* implement tests
+* load Google Maps JavaScript asynchronously via Require.js
+* implement SEO
+* integrate Bootstrap
