@@ -29,13 +29,22 @@ var React = require('react');
 var Map = React.createClass({
   displayName: 'Map',
 
+
+  componentDidMount: function () {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: { lat: -34.397, lng: 150.644 },
+      zoom: 8
+    });
+  },
+
+  componentDidUpdate: function () {
+    console.log("Map component did update.");
+  },
+
   render: function () {
-    return React.createElement(
-      'div',
-      null,
-      'Map'
-    );
+    return React.createElement('div', { id: 'map' });
   }
+
 });
 
 module.exports = Map;
