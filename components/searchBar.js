@@ -4,8 +4,8 @@ var SearchBar = React.createClass({
 
  getInitialState: function() {
     return {
-      lat: 'lat',
-      lng: 'lng'
+      lat: 52.522307,
+      lng: 13.399151
     };
   },
 

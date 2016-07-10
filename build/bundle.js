@@ -37,8 +37,8 @@ var Map = React.createClass({
   componentDidMount: function () {
     //  Initialize map
     var map = new google.maps.Map(document.getElementById('map'), {
-      center: { lat: -34.397, lng: 150.644 },
-      zoom: 8
+      center: { lat: 52.522307, lng: 13.399151 },
+      zoom: 10
     });
 
     // Add markers
@@ -101,13 +101,13 @@ module.exports = Navigation;
 var React = require('react');
 
 var SearchBar = React.createClass({
-  displayName: 'SearchBar',
+  displayName: "SearchBar",
 
 
   getInitialState: function () {
     return {
-      lat: 'lat',
-      lng: 'lng'
+      lat: 52.522307,
+      lng: 13.399151
     };
   },
 
@@ -126,22 +126,22 @@ var SearchBar = React.createClass({
 
   render: function () {
     return React.createElement(
-      'form',
+      "form",
       { onSubmit: this.handleSubmit },
-      React.createElement('input', {
-        type: 'text',
+      React.createElement("input", {
+        type: "text",
         value: this.state.lat,
         onChange: this.handleLatChange
       }),
-      React.createElement('input', {
-        type: 'text',
+      React.createElement("input", {
+        type: "text",
         value: this.state.lng,
         onChange: this.handleLngChange
       }),
       React.createElement(
-        'button',
+        "button",
         null,
-        'Submit'
+        "Submit"
       )
     );
   }

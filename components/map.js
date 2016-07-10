@@ -5,8 +5,8 @@ var Map = React.createClass({
   componentDidMount: function() {
     //  Initialize map
     var map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: -34.397, lng: 150.644},
-      zoom: 8
+      center: {lat: 52.522307, lng: 13.399151},
+      zoom: 10
     });
 
     // Add markers
