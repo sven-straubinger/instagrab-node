@@ -3,11 +3,17 @@ var React = require('react');
 var Map = React.createClass({
 
   componentDidMount: function() {
+    //  Initialize map
     var map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: -34.397, lng: 150.644},
       zoom: 8
     });
-    this.addMarker(-34.397, 150.644, map);
+
+    // Add markers
+    for(var index in this.props.markers) {
+        var marker = this.props.markers[index];
+        this.addMarker(marker.lat, marker.lng, map);
+    }
   },
 
   componentDidUpdate: function() {
