@@ -5,6 +5,8 @@ An application for an application – written in [Node.js](https://nodejs.org/en
 
 ```
 TBD
+1. npm start --> developing and hot compiling
+2. npm build --> just building
 ```
 
 ## Prerequisites
