@@ -75,6 +75,11 @@ var SearchBar = require('./searchBar');
 var Navigation = React.createClass({
   displayName: 'Navigation',
 
+
+  searchForLatLng: function (search) {
+    alert(search);
+  },
+
   render: function () {
     return React.createElement(
       'div',
@@ -84,9 +89,10 @@ var Navigation = React.createClass({
         null,
         'Navigation'
       ),
-      React.createElement(SearchBar, null)
+      React.createElement(SearchBar, { onSearch: this.searchForLatLng })
     );
   }
+
 });
 
 module.exports = Navigation;
@@ -97,11 +103,46 @@ var React = require('react');
 var SearchBar = React.createClass({
   displayName: 'SearchBar',
 
+
+  getInitialState: function () {
+    return {
+      lat: 'lat',
+      lng: 'lng'
+    };
+  },
+
+  handleSubmit: function (event) {
+    event.preventDefault();
+    this.props.onSearch(this.state.lat);
+  },
+
+  handleLatChange: function (event) {
+    this.setState({ lat: event.target.value });
+  },
+
+  handleLngChange: function (event) {
+    this.setState({ lng: event.target.value });
+  },
+
   render: function () {
     return React.createElement(
-      'div',
-      null,
-      'SearchBar'
+      'form',
+      { onSubmit: this.handleSubmit },
+      React.createElement('input', {
+        type: 'text',
+        value: this.state.lat,
+        onChange: this.handleLatChange
+      }),
+      React.createElement('input', {
+        type: 'text',
+        value: this.state.lng,
+        onChange: this.handleLngChange
+      }),
+      React.createElement(
+        'button',
+        null,
+        'Submit'
+      )
     );
   }
 });
