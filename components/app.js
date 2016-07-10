@@ -1,10 +1,12 @@
 var React = require('react');
+var Map = require('./map');
 
 var App = React.createClass({
   render: function() {
     return (
       <div>
-        Instagrab&ndash;App
+        <h1>Instagrab</h1>
+        <Map />
       </div>
     );
   }
