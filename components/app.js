@@ -3,12 +3,6 @@ var jQuery = require('jquery');
 var Map = require('./map');
 var Navigation = require('./navigation');
 
-// Data Source
-var markers = [
-  {id: 1, title: "Title-1", lat: -34.387, lng: 150.634},
-  {id: 2, title: "Title-2", lat: -34.397, lng: 150.654}
-];
-
 // App Component
 var App = React.createClass({
 
@@ -16,12 +10,35 @@ var App = React.createClass({
     baseUrl: 'https://api.github.com/users/octocat/gists'
   },
 
+  getInitialState: function() {
+    return {
+      markers: [
+        {id: 1, title: "Title-1", lat: 52.522307, lng: 13.398251},
+        {id: 2, title: "Title-1", lat: 52.523407, lng: 13.399151},
+      ]
+    };
+  },
+
+  componentDidMount: function() {
+    this.serverRequest = jQuery.get(App.baseUrl, function (result) {
+      var lastGist = result[0];
+      this.setState({
+        // markers: // Replace with response
+        // TODO: Check 200 (ok) status code
+      });
+    }.bind(this));
+  },
+
+  componentWillUnmount: function() {
+    this.serverRequest.abort();
+  },
+
   render: function() {
     return (
       <div>
         <h1>Instagrab</h1>
         <Navigation />
-        <Map markers={markers} />
+        <Map markers={this.state.markers} />
       </div>
     );
   }
