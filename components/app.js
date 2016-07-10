@@ -1,4 +1,5 @@
 var React = require('react');
+var jQuery = require('jquery');
 var Map = require('./map');
 var Navigation = require('./navigation');
 
