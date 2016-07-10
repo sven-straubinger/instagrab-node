@@ -3,6 +3,10 @@ var React = require('react');
 var Map = require('./map');
 var Navigation = require('./navigation');
 
+// Data Source
+var markers = [{ id: 1, title: "Title-1", lat: -34.387, lng: 150.634 }, { id: 2, title: "Title-2", lat: -34.397, lng: 150.654 }];
+
+// App Component
 var App = React.createClass({
   displayName: 'App',
 
@@ -16,7 +20,7 @@ var App = React.createClass({
         'Instagrab'
       ),
       React.createElement(Navigation, null),
-      React.createElement(Map, null)
+      React.createElement(Map, { markers: markers })
     );
   }
 });
@@ -31,11 +35,18 @@ var Map = React.createClass({
 
 
   componentDidMount: function () {
+    //  Initialize map
     var map = new google.maps.Map(document.getElementById('map'), {
       center: { lat: -34.397, lng: 150.644 },
       zoom: 8
     });
-    this.addMarker(-34.397, 150.644, map);
+
+    // Add markers
+    for (var index in this.props.markers) {
+      var marker = this.props.markers[index];
+      console.log(marker);
+      this.addMarker(marker.lat, marker.lng, map);
+    }
   },
 
   componentDidUpdate: function () {
