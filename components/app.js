@@ -3,7 +3,7 @@ var jQuery = require('jquery');
 var Map = require('./map');
 var Navigation = require('./navigation');
 
-// App Component
+/* App Component */
 var App = React.createClass({
 
   statics: {
@@ -33,29 +33,51 @@ var App = React.createClass({
 
   getInitialState: function() {
     return {
-      markers: [
-        // {id: 1, title: "Title-1", lat: 52.522307, lng: 13.398251},
-        // {id: 2, title: "Title-1", lat: 52.523407, lng: 13.399151},
-      ]
+      markers: []
     };
   },
 
   componentDidMount: function() {
+    // Define parameters
     var parameters = {
-      lat: 52.522307,
-      lng: 13.398251,
+      lat: 52.528920,
+      lng: 13.411994,
       access_token: App.instagram.accessToken
     }
 
+    // Execute request
     var url = App.instagram.baseUrl + "?" + jQuery.param(parameters);
+    this.serverRequest = jQuery.ajax({
+      context: this,
+      url: url,
+      type: 'GET',
+      dataType: 'json',
+      success: function(result) {
+        var markers = [];
+        var posts = result.data;
 
-    this.serverRequest = jQuery.get(url, function (result) {
-      var lastGist = result[0];
-      this.setState({
-        // markers: // Replace with response
-        // TODO: Check 200 (ok) status code
-      });
-    }.bind(this));
+        for(var index in posts) {
+          var post = posts[index];
+          var id = post.id;
+          var caption = post.caption;
+          var lat = post.location.latitude;
+          var lng = post.location.longitude;
+          var marker = {id: id, title: caption, lat: lat, lng: lng}
+          markers.push(marker);
+        }
+
+        // Update state
+        this.setState({
+          markers: markers
+        });
+
+      },
+      error: function(error) {
+        var code = error.responseJSON.meta.code;
+        var msg = error.responseJSON.meta.error_message;
+        alert('Instagram responds with error code ' + code +'. ' + msg + '\n\nURL: ' + url);
+      }
+    });
   },
 
   componentWillUnmount: function() {
