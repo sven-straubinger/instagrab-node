@@ -13,3 +13,8 @@ An application for an application – written in [Node.js](https://nodejs.org/en
 ```
 Note: By default, React will be in development mode, which is slower, and not advised for production. To use React in production mode, set the environment variable NODE_ENV to production (using envify or webpack's DefinePlugin).
 ```
+
+## Components
+
+- App
+-- Map
