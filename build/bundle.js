@@ -10,6 +10,11 @@ var markers = [{ id: 1, title: "Title-1", lat: -34.387, lng: 150.634 }, { id: 2,
 var App = React.createClass({
   displayName: 'App',
 
+
+  statics: {
+    baseUrl: 'https://api.github.com/users/octocat/gists'
+  },
+
   render: function () {
     return React.createElement(
       'div',

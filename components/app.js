@@ -10,6 +10,11 @@ var markers = [
 
 // App Component
 var App = React.createClass({
+
+  statics: {
+    baseUrl: 'https://api.github.com/users/octocat/gists'
+  },
+
   render: function() {
     return (
       <div>
