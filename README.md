@@ -5,12 +5,13 @@ An application for an application – written in [Node.js](https://nodejs.org/en
 
 ```
 TBD
-1. checkout project
-2. npm install
-3. browserify && watchify -g
-4. npm start --> developing and hot compiling
-5. npm build --> just building
-6. open index.html
+1. Provide a valid access-token for instagram
+2. checkout project
+3. npm install
+4. browserify && watchify -g
+5. npm start --> developing and hot compiling
+6. npm build --> just building
+7. open index.html
 ```
 
 ## Prerequisites
@@ -53,3 +54,10 @@ TBD
 * load Google Maps JavaScript asynchronously via Require.js
 * implement SEO
 * integrate Bootstrap
+
+
+
+## Instagram Policy / API Restrictions
+
+Since November 17th 2015, Instagram changed their API. Now users cannot use the full scope as before, an access-token is required for every request. Clients consum the instagram API in sandbox-mode, what means they can only see their own content and content up to 10 sandbox users.
+
