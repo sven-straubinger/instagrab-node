@@ -7,9 +7,10 @@ An application for an application – written in [Node.js](https://nodejs.org/en
 TBD
 1. checkout project
 2. npm install
-3. npm start --> developing and hot compiling
-4. npm build --> just building
-5. open index.html
+3. browserify && watchify -g
+4. npm start --> developing and hot compiling
+5. npm build --> just building
+6. open index.html
 ```
 
 ## Prerequisites
