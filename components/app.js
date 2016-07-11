@@ -70,7 +70,6 @@ var App = React.createClass({
           var post = posts[index];
           var markerInfo = {
             id: post.id,
-            title: post.caption,
             lat: post.location.latitude,
             lng: post.location.longitude,
             thumbnail: post.images.thumbnail.url,
