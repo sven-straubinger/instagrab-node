@@ -13,7 +13,7 @@ var App = React.createClass({
 
     instagram: {
 
-      baseUrl: 'https://api.instagram.com/v1/media/search',
+      searchEndpoint: 'https://api.instagram.com/v1/media/search',
       likeEndpoint: function (id) {
         return 'https://api.instagram.com/v1/media/' + id + '/likes';
       },
@@ -58,7 +58,7 @@ var App = React.createClass({
     };
 
     // Execute request
-    var url = App.instagram.baseUrl + "?" + jQuery.param(parameters);
+    var url = App.instagram.searchEndpoint + "?" + jQuery.param(parameters);
     this.serverRequest = jQuery.ajax({
       context: this,
       url: url,
