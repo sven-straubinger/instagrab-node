@@ -32,6 +32,7 @@ TBD
   * if `browserify` is not installed, use `npm install browserify -g`
   * see [http://browserify.org] for detailed information
 * Bootstrap simpliy integrated via BootstrapCDN
+* it's highly recommended to use [React Developer Tools](https://facebook.github.io/react/blog/2015/09/02/new-react-developer-tools.html)
 
 ```
 Note: By default, React will be in development mode, which is slower, and not advised for production. To use React in production mode, set the environment variable NODE_ENV to production (using envify or webpack's DefinePlugin).
