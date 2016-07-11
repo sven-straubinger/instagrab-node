@@ -113,18 +113,7 @@ var App = React.createClass({
         access_token: App.instagram.accessToken
       },
       success: function(result) {
-
-        var markerInfos = this.state.markerInfos;
-        var markerIndex = markerInfos.findIndex(function(m) {
-          return m.id == markerInfo.id;
-        });
-
-        var updatedMarkerInfo  = update(markerInfos[markerIndex], {userHasLiked: {$set: true}});
-        var updatedMarkerInfos = update(markerInfos, {
-          $splice: [[markerIndex, 1, updatedMarkerInfo]]
-        });
-        this.setState({markerInfos: updatedMarkerInfos});
-
+        this.updateUserHasLiked(markerInfo, true);
       },
       error: function(error) {
         var code = error.responseJSON.meta.code;
@@ -149,8 +138,7 @@ var App = React.createClass({
         access_token: App.instagram.accessToken
       },
       success: function(result) {
-        alert('Unliked Post');
-        // TODO Update State
+        this.updateUserHasLiked(markerInfo, false);
       },
       error: function(error) {
         var code = error.responseJSON.meta.code;
@@ -159,6 +147,21 @@ var App = React.createClass({
       }
     });
 
+  },
+
+  updateUserHasLiked: function(markerInfo, hasLiked) {
+    // Make use of Immutability Helpers
+    // https://facebook.github.io/react/docs/update.html
+    var markerInfos = this.state.markerInfos;
+    var markerIndex = markerInfos.findIndex(function(m) {
+      return m.id == markerInfo.id;
+    });
+
+    var updatedMarkerInfo  = update(markerInfos[markerIndex], {userHasLiked: {$set: hasLiked}});
+    var updatedMarkerInfos = update(markerInfos, {
+      $splice: [[markerIndex, 1, updatedMarkerInfo]]
+    });
+    this.setState({markerInfos: updatedMarkerInfos});
   },
 
   render: function() {
