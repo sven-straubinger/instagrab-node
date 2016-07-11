@@ -42,7 +42,7 @@ var App = React.createClass({
 
   getInitialState: function () {
     return {
-      markers: []
+      markerInfos: []
     };
   },
 
@@ -67,12 +67,12 @@ var App = React.createClass({
       type: 'GET',
       dataType: 'json',
       success: function (result) {
-        var markers = [];
+        var markerInfos = [];
         var posts = result.data;
 
         for (var index in posts) {
           var post = posts[index];
-          var marker = {
+          var markerInfo = {
             id: post.id,
             title: post.caption,
             lat: post.location.latitude,
@@ -80,12 +80,12 @@ var App = React.createClass({
             thumbnail: post.images.thumbnail.url,
             userHasLiked: post.user_has_liked
           };
-          markers.push(marker);
+          markerInfos.push(markerInfo);
         }
 
         // Update state
         this.setState({
-          markers: markers
+          markerInfos: markerInfos
         });
       },
       error: function (error) {
@@ -157,7 +157,7 @@ var App = React.createClass({
       null,
       React.createElement(Header, null),
       React.createElement(Map, {
-        markers: this.state.markers,
+        markerInfos: this.state.markerInfos,
         onSearch: this.searchPosts,
         onMarkerClick: this.handleLike,
         searchDistance: App.instagram.searchDistance
@@ -298,10 +298,10 @@ var Map = React.createClass({
   },
 
   componentDidUpdate: function () {
-    // Update markers
-    for (var index in this.props.markers) {
-      var marker = this.props.markers[index];
-      this.addMarker(marker);
+    // Update/Create markers from markerInfo
+    for (var index in this.props.markerInfos) {
+      var markerInfo = this.props.markerInfos[index];
+      this.addMarker(markerInfo);
     }
   },
 

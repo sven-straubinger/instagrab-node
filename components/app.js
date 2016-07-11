@@ -38,7 +38,7 @@ var App = React.createClass({
 
   getInitialState: function() {
     return {
-      markers: []
+      markerInfos: []
     };
   },
 
@@ -63,12 +63,12 @@ var App = React.createClass({
       type: 'GET',
       dataType: 'json',
       success: function(result) {
-        var markers = [];
+        var markerInfos = [];
         var posts = result.data;
 
         for(var index in posts) {
           var post = posts[index];
-          var marker = {
+          var markerInfo = {
             id: post.id,
             title: post.caption,
             lat: post.location.latitude,
@@ -76,12 +76,12 @@ var App = React.createClass({
             thumbnail: post.images.thumbnail.url,
             userHasLiked: post.user_has_liked
           }
-          markers.push(marker);
+          markerInfos.push(markerInfo);
         }
 
         // Update state
         this.setState({
-          markers: markers
+          markerInfos: markerInfos
         });
 
       },
@@ -155,7 +155,7 @@ var App = React.createClass({
       <div>
         <Header />
         <Map
-          markers={this.state.markers}
+          markerInfos={this.state.markerInfos}
           onSearch={this.searchPosts}
           onMarkerClick={this.handleLike}
           searchDistance={App.instagram.searchDistance}

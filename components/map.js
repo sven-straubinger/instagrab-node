@@ -37,10 +37,10 @@ var Map = React.createClass({
   },
 
   componentDidUpdate: function() {
-    // Update markers
-    for(var index in this.props.markers) {
-        var marker = this.props.markers[index];
-        this.addMarker(marker);
+    // Update/Create markers from markerInfo
+    for(var index in this.props.markerInfos) {
+        var markerInfo = this.props.markerInfos[index];
+        this.addMarker(markerInfo);
     }
   },
 
