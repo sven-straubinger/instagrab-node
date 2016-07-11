@@ -42,7 +42,7 @@ var App = React.createClass({
     this.serverRequest.abort();
   },
 
-  searchMedia: function(lat, lng) {
+  searchPosts: function(lat, lng) {
     // Define parameters
     var parameters = {
       lat: lat,
@@ -88,6 +88,10 @@ var App = React.createClass({
     });
   },
 
+  likePost: function(){
+    alert('Liking media with id ...');
+  },
+
   render: function() {
     return (
       <div>
@@ -95,7 +99,8 @@ var App = React.createClass({
         <Navigation />
         <Map
           markers={this.state.markers}
-          onSearch={this.searchMedia}
+          onSearch={this.searchPosts}
+          onMarkerClick={this.likePost}
           searchDistance={App.instagram.searchDistance}
         />
       </div>

@@ -45,7 +45,7 @@ var App = React.createClass({
     this.serverRequest.abort();
   },
 
-  searchMedia: function (lat, lng) {
+  searchPosts: function (lat, lng) {
     // Define parameters
     var parameters = {
       lat: lat,
@@ -90,6 +90,10 @@ var App = React.createClass({
     });
   },
 
+  likePost: function () {
+    alert('Liking media with id ...');
+  },
+
   render: function () {
     return React.createElement(
       'div',
@@ -102,7 +106,8 @@ var App = React.createClass({
       React.createElement(Navigation, null),
       React.createElement(Map, {
         markers: this.state.markers,
-        onSearch: this.searchMedia,
+        onSearch: this.searchPosts,
+        onMarkerClick: this.likePost,
         searchDistance: App.instagram.searchDistance
       })
     );
@@ -137,9 +142,9 @@ var Map = React.createClass({
     // Use overlay to show search region
     var radiusCircle = new google.maps.Circle({
       strokeColor: '#0000FF',
-      strokeOpacity: 0.8,
+      strokeOpacity: 0.45,
       strokeWeight: 1,
-      fillColor: '#00FF00',
+      fillColor: '#FFFFFF',
       fillOpacity: 0.35,
       map: this.map,
       center: this.map.center,
@@ -169,7 +174,7 @@ var Map = React.createClass({
     // Define image
     var icon = {
       url: thumbnail,
-      scaledSize: new google.maps.Size(50, 50)
+      scaledSize: new google.maps.Size(75, 75)
     };
 
     var latLng = new google.maps.LatLng(lat, lng);
@@ -177,8 +182,11 @@ var Map = React.createClass({
       position: latLng,
       map: map,
       icon: icon
-      // title: 'Title',
-      // icon: { ... some icon or style ... }
+    });
+
+    var self = this;
+    marker.addListener('click', function () {
+      self.props.onMarkerClick();
     });
   },
 
