@@ -87,9 +87,8 @@ var App = React.createClass({
 
       },
       error: function(error) {
-        var code = error.responseJSON.meta.code;
-        var msg = error.responseJSON.meta.error_message;
-        alert('Instagram responds with error code ' + code +'. ' + msg + '\n\nURL: ' + url);
+        var meta = error.responseJSON.meta;
+        alert('Instagram: Error ' + meta.code +'. ' + meta.error_message);
       }
     });
   },
@@ -116,9 +115,8 @@ var App = React.createClass({
         this.updateUserHasLiked(markerInfo, true);
       },
       error: function(error) {
-        var code = error.responseJSON.meta.code;
-        var msg = error.responseJSON.meta.error_message;
-        alert('Instagram responds with error code ' + code +'. ' + msg + '\n\nURL: ' + url);
+        var meta = error.responseJSON.meta;
+        alert('Instagram: Error ' + meta.code +'. ' + meta.error_message);
       }
     });
 
@@ -141,9 +139,8 @@ var App = React.createClass({
         this.updateUserHasLiked(markerInfo, false);
       },
       error: function(error) {
-        var code = error.responseJSON.meta.code;
-        var msg = error.responseJSON.meta.error_message;
-        alert('Instagram responds with error code ' + code +'. ' + msg + '\n\nURL: ' + url);
+        var meta = error.responseJSON.meta;
+        alert('Instagram: Error ' + meta.code +'. ' + meta.error_message);
       }
     });
 
