@@ -4,6 +4,8 @@ var React = require('react');
 var Map = require('./map');
 var Header = require('./header');
 
+var update = require('react-addons-update');
+
 /* App Component */
 var App = React.createClass({
 
