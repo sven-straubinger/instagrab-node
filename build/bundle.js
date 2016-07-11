@@ -86,6 +86,10 @@ var App = React.createClass({
     this.serverRequest.abort();
   },
 
+  searchMediaForLatLng: function (lat, lng) {
+    alert('Searching Instagram media for:\n\nLat: ' + lat + '\nLng: ' + lng);
+  },
+
   render: function () {
     return React.createElement(
       'div',
@@ -96,7 +100,7 @@ var App = React.createClass({
         'Instagrab'
       ),
       React.createElement(Navigation, null),
-      React.createElement(Map, { markers: this.state.markers })
+      React.createElement(Map, { markers: this.state.markers, onSearch: this.searchMediaForLatLng })
     );
   }
 });
@@ -116,6 +120,14 @@ var Map = React.createClass({
       center: { lat: 52.522307, lng: 13.399151 },
       zoom: 10
     });
+
+    // Setup right-click events
+    var self = this;
+    google.maps.event.addListener(this.map, "rightclick", function (event) {
+      var lat = event.latLng.lat();
+      var lng = event.latLng.lng();
+      self.props.onSearch(lat, lng);
+    });
   },
 
   componentDidUpdate: function () {
@@ -124,6 +136,10 @@ var Map = React.createClass({
       var marker = this.props.markers[index];
       this.addMarker(marker.lat, marker.lng, this.map);
     }
+  },
+
+  componentWillUnmount: function () {
+    google.maps.event.clearListeners(this.map, 'rightclick');
   },
 
   addMarker: function (lat, lng, map) {

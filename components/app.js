@@ -84,12 +84,16 @@ var App = React.createClass({
     this.serverRequest.abort();
   },
 
+  searchMediaForLatLng: function(lat, lng) {
+    alert('Searching Instagram media for:\n\nLat: ' + lat + '\nLng: ' + lng);
+  },
+
   render: function() {
     return (
       <div>
         <h1>Instagrab</h1>
         <Navigation />
-        <Map markers={this.state.markers} />
+        <Map markers={this.state.markers} onSearch={this.searchMediaForLatLng} />
       </div>
     );
   }
