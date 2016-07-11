@@ -25,6 +25,13 @@ header nav.navbar .github-link {
     background-color: orange;
     z-index: 10;
     padding: 5px;
+    height: 0;
+    display: none;
+}
+
+#indicator.loading {
+    display: block;
+    height: inherit;
 }
 
 #map {

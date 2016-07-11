@@ -45,7 +45,8 @@ var App = React.createClass({
 
   getInitialState: function () {
     return {
-      markerInfos: []
+      markerInfos: [],
+      isLoading: false
     };
   },
 
@@ -54,6 +55,7 @@ var App = React.createClass({
   },
 
   searchPosts: function (lat, lng) {
+    this.setState({ isLoading: true });
     // Define parameters
     var parameters = {
       lat: lat,
@@ -87,12 +89,16 @@ var App = React.createClass({
 
         // Update state
         this.setState({
-          markerInfos: markerInfos
+          markerInfos: markerInfos,
+          isLoading: false
         });
       },
       error: function (error) {
         var meta = error.responseJSON.meta;
         alert('Instagram: Error ' + meta.code + '. ' + meta.error_message);
+        this.setState({
+          isLoading: false
+        });
       }
     });
   },
@@ -168,7 +174,7 @@ var App = React.createClass({
       'div',
       null,
       React.createElement(Header, null),
-      React.createElement(Indicator, null),
+      React.createElement(Indicator, { isLoading: this.state.isLoading }),
       React.createElement(Map, {
         markerInfos: this.state.markerInfos,
         onSearch: this.searchPosts,
@@ -273,22 +279,23 @@ module.exports = Header;
 var React = require('react');
 
 var Indicator = React.createClass({
-  displayName: "Indicator",
+  displayName: 'Indicator',
 
   render: function () {
+    var className = this.props.isLoading ? 'loading' : '';
     return React.createElement(
-      "div",
-      { id: "indicator" },
+      'div',
+      { id: 'indicator', className: className },
       React.createElement(
-        "div",
-        { className: "container-fluid" },
+        'div',
+        { className: 'container-fluid' },
         React.createElement(
-          "div",
-          { className: "row" },
+          'div',
+          { className: 'row' },
           React.createElement(
-            "div",
-            { className: "col-md-12 no-padding text-center" },
-            "Loading ..."
+            'div',
+            { className: 'col-md-12 no-padding text-center' },
+            'Loading ...'
           )
         )
       )

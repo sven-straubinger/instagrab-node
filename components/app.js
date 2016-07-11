@@ -41,7 +41,8 @@ var App = React.createClass({
 
   getInitialState: function() {
     return {
-      markerInfos: []
+      markerInfos: [],
+      isLoading: false
     };
   },
 
@@ -50,6 +51,7 @@ var App = React.createClass({
   },
 
   searchPosts: function(lat, lng) {
+    this.setState({isLoading: true});
     // Define parameters
     var parameters = {
       lat: lat,
@@ -83,13 +85,17 @@ var App = React.createClass({
 
         // Update state
         this.setState({
-          markerInfos: markerInfos
+          markerInfos: markerInfos,
+          isLoading: false
         });
 
       },
       error: function(error) {
         var meta = error.responseJSON.meta;
         alert('Instagram: Error ' + meta.code +'. ' + meta.error_message);
+        this.setState({
+          isLoading: false
+        });
       }
     });
   },
@@ -166,7 +172,7 @@ var App = React.createClass({
     return (
       <div>
         <Header />
-        <Indicator />
+        <Indicator isLoading={this.state.isLoading}/>
         <Map
           markerInfos={this.state.markerInfos}
           onSearch={this.searchPosts}
