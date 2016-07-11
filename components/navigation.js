@@ -15,7 +15,9 @@ var Navigation = React.createClass({
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
               </button>
-              <a className="navbar-brand" href="#">Instagrab</a>
+              <a className="navbar-brand" href="#">
+                <img src="public/images/instagrab-logo.png" width="90" />
+              </a>
             </div>
 
             <div className="collapse navbar-collapse" id="navbar-collapse">

@@ -298,7 +298,7 @@ var Navigation = React.createClass({
             React.createElement(
               "a",
               { className: "navbar-brand", href: "#" },
-              "Instagrab"
+              React.createElement("img", { src: "public/images/instagrab-logo.png", width: "90" })
             )
           ),
           React.createElement(
