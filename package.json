@@ -29,8 +29,8 @@
     "babel-preset-react": "^6.11.1",
     "babelify": "^7.3.0",
     "jquery": "^2.2.4",
-    "react": "^15.2.0",
-    "react-dom": "^15.2.0"
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1"
   },
   "babel": {
     "presets": [
