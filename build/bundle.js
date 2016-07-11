@@ -272,26 +272,64 @@ var Navigation = React.createClass({
 
   render: function () {
     return React.createElement(
-      "div",
-      { id: "navigation" },
+      "header",
+      null,
       React.createElement(
-        "div",
-        { className: "container-fluid" },
+        "nav",
+        { className: "navbar navbar-inverse" },
         React.createElement(
           "div",
-          { className: "row" },
+          { className: "container-fluid" },
           React.createElement(
             "div",
-            { className: "col-md-12" },
+            { className: "navbar-header" },
             React.createElement(
-              "h1",
-              null,
-              "Instagrab"
+              "button",
+              { type: "button", className: "navbar-toggle collapsed", "data-toggle": "collapse", "data-target": "#navbar-collapse", "aria-expanded": "false" },
+              React.createElement(
+                "span",
+                { className: "sr-only" },
+                "Toggle navigation"
+              ),
+              React.createElement("span", { className: "icon-bar" }),
+              React.createElement("span", { className: "icon-bar" }),
+              React.createElement("span", { className: "icon-bar" })
             ),
             React.createElement(
-              "span",
-              null,
-              "Navigation"
+              "a",
+              { className: "navbar-brand", href: "#" },
+              "Instagrab"
+            )
+          ),
+          React.createElement(
+            "div",
+            { className: "collapse navbar-collapse", id: "navbar-collapse" },
+            React.createElement(
+              "ul",
+              { className: "nav navbar-nav navbar-right" },
+              React.createElement(
+                "li",
+                { className: "active" },
+                React.createElement(
+                  "a",
+                  { href: "#" },
+                  "Link ",
+                  React.createElement(
+                    "span",
+                    { className: "sr-only" },
+                    "(current)"
+                  )
+                )
+              ),
+              React.createElement(
+                "li",
+                null,
+                React.createElement(
+                  "a",
+                  { href: "https://github.com/sven-straubinger/instagrab-node", target: "_blank" },
+                  "View on GitHub"
+                )
+              )
             )
           )
         )
