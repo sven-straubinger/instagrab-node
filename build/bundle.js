@@ -79,7 +79,7 @@ var App = React.createClass({
             thumbnail: post.images.thumbnail.url,
             userHasLiked: post.user_has_liked
           };
-          markerInfos.push(markerInfo);
+          markerInfos[markerInfo.id] = markerInfo;
         }
 
         // Update state
@@ -95,16 +95,16 @@ var App = React.createClass({
     });
   },
 
-  handleLike: function (post) {
-    if (post.userHasLiked) {
-      this.unlikePost(post);
+  handleLike: function (markerInfo) {
+    if (markerInfo.userHasLiked) {
+      this.unlikePost(markerInfo);
     } else {
-      this.likePost(post);
+      this.likePost(markerInfo);
     }
   },
 
-  likePost: function (post) {
-    var url = App.instagram.likeEndpoint(post.id);
+  likePost: function (markerInfo) {
+    var url = App.instagram.likeEndpoint(markerInfo.id);
     this.serverRequest = jQuery.ajax({
       context: this,
       url: url,
@@ -125,11 +125,11 @@ var App = React.createClass({
     });
   },
 
-  unlikePost: function (post) {
+  unlikePost: function (markerInfo) {
     var parameters = {
       access_token: App.instagram.accessToken
     };
-    var url = App.instagram.likeEndpoint(post.id) + "?" + jQuery.param(parameters);
+    var url = App.instagram.likeEndpoint(markerInfo.id) + "?" + jQuery.param(parameters);
     this.serverRequest = jQuery.ajax({
       context: this,
       url: url,
@@ -280,7 +280,7 @@ var Map = React.createClass({
 
     // Use overlay to show search region
     var radiusCircle = new google.maps.Circle({
-      strokeColor: '#0000FF',
+      strokeColor: 'rgb(235,75,89)',
       strokeOpacity: 0.45,
       strokeWeight: 1,
       fillColor: '#FFFFFF',
@@ -298,8 +298,8 @@ var Map = React.createClass({
 
   componentDidUpdate: function () {
     // Update/Create markers from markerInfo
-    for (var index in this.props.markerInfos) {
-      var markerInfo = this.props.markerInfos[index];
+    for (var key in this.props.markerInfos) {
+      var markerInfo = this.props.markerInfos[key];
       this.addMarker(markerInfo);
     }
   },
