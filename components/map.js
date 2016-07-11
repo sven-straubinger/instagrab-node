@@ -3,7 +3,8 @@ var React = require('react');
 var Map = React.createClass({
 
   componentDidMount: function() {
-    //  Initialize map
+    //  Initialize
+    this.markers = [];
     this.map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 52.522307, lng: 13.399151},
       zoom: 12,
@@ -37,6 +38,9 @@ var Map = React.createClass({
   },
 
   componentDidUpdate: function() {
+    // Clear
+    this.clearMarkers();
+
     // Update/Create markers from markerInfo
     for(var index in this.props.markerInfos) {
         var markerInfo = this.props.markerInfos[index];
@@ -50,6 +54,7 @@ var Map = React.createClass({
   },
 
   addMarker: function(markerInfo) {
+
     // Define image
     var icon = {
       url: markerInfo.thumbnail,
@@ -76,6 +81,16 @@ var Map = React.createClass({
       self.props.onMarkerClick(markerInfo);
     });
 
+    // Store marker
+    this.markers.push(marker);
+  },
+
+  clearMarkers: function() {
+    for (var i = 0; i < this.markers.length; i++ ) {
+      google.maps.event.clearListeners(this.markers[i], 'click');
+      this.markers[i].setMap(null);
+    }
+    this.markers.length = 0;
   },
 
   render: function() {
