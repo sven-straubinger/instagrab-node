@@ -2,7 +2,7 @@ global.jQuery = require('jquery');
 
 var React = require('react');
 var Map = require('./map');
-var Navigation = require('./navigation');
+var Header = require('./header');
 
 /* App Component */
 var App = React.createClass({
@@ -16,7 +16,7 @@ var App = React.createClass({
         return 'https://api.instagram.com/v1/media/' + id + '/likes';
       },
       searchDistance: 2500, // Default is 1km (distance=1000), max distance is 5km
-      accessToken: '' // Please enter a valid access-token here
+      accessToken: '50913539.1a5def0.6b4340c5e992471688d9f1ec5cad48c2' // Please enter a valid access-token here
 
       /*
        * NOTE:
@@ -153,7 +153,7 @@ var App = React.createClass({
   render: function() {
     return (
       <div>
-        <Navigation />
+        <Header />
         <Map
           markers={this.state.markers}
           onSearch={this.searchPosts}

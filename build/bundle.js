@@ -4,7 +4,7 @@ global.jQuery = require('jquery');
 
 var React = require('react');
 var Map = require('./map');
-var Navigation = require('./navigation');
+var Header = require('./header');
 
 /* App Component */
 var App = React.createClass({
@@ -20,7 +20,7 @@ var App = React.createClass({
         return 'https://api.instagram.com/v1/media/' + id + '/likes';
       },
       searchDistance: 2500, // Default is 1km (distance=1000), max distance is 5km
-      accessToken: '' // Please enter a valid access-token here
+      accessToken: '50913539.1a5def0.6b4340c5e992471688d9f1ec5cad48c2' // Please enter a valid access-token here
 
       /*
        * NOTE:
@@ -155,7 +155,7 @@ var App = React.createClass({
     return React.createElement(
       'div',
       null,
-      React.createElement(Navigation, null),
+      React.createElement(Header, null),
       React.createElement(Map, {
         markers: this.state.markers,
         onSearch: this.searchPosts,
@@ -169,7 +169,94 @@ var App = React.createClass({
 module.exports = App;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./map":2,"./navigation":3,"jquery":31,"react":173}],2:[function(require,module,exports){
+},{"./header":2,"./map":3,"jquery":31,"react":173}],2:[function(require,module,exports){
+var React = require('react');
+
+var Header = React.createClass({
+  displayName: "Header",
+
+
+  render: function () {
+    return React.createElement(
+      "header",
+      null,
+      React.createElement(
+        "nav",
+        { className: "navbar navbar-inverse" },
+        React.createElement(
+          "div",
+          { className: "container-fluid" },
+          React.createElement(
+            "div",
+            { className: "navbar-header" },
+            React.createElement(
+              "button",
+              { type: "button", className: "navbar-toggle collapsed", "data-toggle": "collapse", "data-target": "#navbar-collapse", "aria-expanded": "false" },
+              React.createElement(
+                "span",
+                { className: "sr-only" },
+                "Toggle navigation"
+              ),
+              React.createElement("span", { className: "icon-bar" }),
+              React.createElement("span", { className: "icon-bar" }),
+              React.createElement("span", { className: "icon-bar" })
+            ),
+            React.createElement(
+              "a",
+              { className: "navbar-brand", href: "#" },
+              React.createElement("img", { src: "public/images/instagrab-logo.png", width: "90" })
+            )
+          ),
+          React.createElement(
+            "div",
+            { className: "collapse navbar-collapse", id: "navbar-collapse" },
+            React.createElement(
+              "ul",
+              { className: "nav navbar-nav navbar-right" },
+              React.createElement(
+                "li",
+                null,
+                React.createElement(
+                  "a",
+                  { className: "github-link", href: "https://github.com/sven-straubinger/instagrab-node", title: "View on GitHub", target: "_blank" },
+                  React.createElement("img", { src: "public/images/git.png", height: "34", alt: "Octocat Logo", title: "Octocat" })
+                )
+              )
+            )
+          )
+        )
+      ),
+      React.createElement(
+        "div",
+        { className: "container" },
+        React.createElement(
+          "div",
+          { className: "row" },
+          React.createElement(
+            "div",
+            { className: "col-md-12 col-sm-12-col-xs-12 text-center" },
+            React.createElement(
+              "span",
+              null,
+              "Lat: 52.23523"
+            ),
+            React.createElement("br", null),
+            React.createElement(
+              "span",
+              null,
+              "Lat:  9.25135"
+            )
+          )
+        )
+      )
+    );
+  }
+
+});
+
+module.exports = Header;
+
+},{"react":173}],3:[function(require,module,exports){
 var React = require('react');
 
 var Map = React.createClass({
@@ -262,93 +349,6 @@ var Map = React.createClass({
 });
 
 module.exports = Map;
-
-},{"react":173}],3:[function(require,module,exports){
-var React = require('react');
-
-var Navigation = React.createClass({
-  displayName: "Navigation",
-
-
-  render: function () {
-    return React.createElement(
-      "header",
-      null,
-      React.createElement(
-        "nav",
-        { className: "navbar navbar-inverse" },
-        React.createElement(
-          "div",
-          { className: "container-fluid" },
-          React.createElement(
-            "div",
-            { className: "navbar-header" },
-            React.createElement(
-              "button",
-              { type: "button", className: "navbar-toggle collapsed", "data-toggle": "collapse", "data-target": "#navbar-collapse", "aria-expanded": "false" },
-              React.createElement(
-                "span",
-                { className: "sr-only" },
-                "Toggle navigation"
-              ),
-              React.createElement("span", { className: "icon-bar" }),
-              React.createElement("span", { className: "icon-bar" }),
-              React.createElement("span", { className: "icon-bar" })
-            ),
-            React.createElement(
-              "a",
-              { className: "navbar-brand", href: "#" },
-              React.createElement("img", { src: "public/images/instagrab-logo.png", width: "90" })
-            )
-          ),
-          React.createElement(
-            "div",
-            { className: "collapse navbar-collapse", id: "navbar-collapse" },
-            React.createElement(
-              "ul",
-              { className: "nav navbar-nav navbar-right" },
-              React.createElement(
-                "li",
-                null,
-                React.createElement(
-                  "a",
-                  { className: "github-link", href: "https://github.com/sven-straubinger/instagrab-node", title: "View on GitHub", target: "_blank" },
-                  React.createElement("img", { src: "public/images/git.png", height: "34", alt: "Octocat Logo", title: "Octocat" })
-                )
-              )
-            )
-          )
-        )
-      ),
-      React.createElement(
-        "div",
-        { className: "container" },
-        React.createElement(
-          "div",
-          { className: "row" },
-          React.createElement(
-            "div",
-            { className: "col-md-12 col-sm-12-col-xs-12 text-center" },
-            React.createElement(
-              "span",
-              null,
-              "Lat: 52.23523"
-            ),
-            React.createElement("br", null),
-            React.createElement(
-              "span",
-              null,
-              "Lat:  9.25135"
-            )
-          )
-        )
-      )
-    );
-  }
-
-});
-
-module.exports = Navigation;
 
 },{"react":173}],4:[function(require,module,exports){
 var React = require('react');

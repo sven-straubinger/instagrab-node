@@ -1,6 +1,6 @@
 var React = require('react');
 
-var Navigation = React.createClass({
+var Header = React.createClass({
 
   render: function() {
     return (
@@ -48,4 +48,4 @@ var Navigation = React.createClass({
 
 });
 
-module.exports = Navigation;
+module.exports = Header;
