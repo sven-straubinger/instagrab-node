@@ -20,7 +20,7 @@ var Map = React.createClass({
 
     // Use overlay to show search region
     var radiusCircle = new google.maps.Circle({
-      strokeColor: '#0000FF',
+      strokeColor: 'rgb(235,75,89)',
       strokeOpacity: 0.45,
       strokeWeight: 1,
       fillColor: '#FFFFFF',
@@ -38,8 +38,8 @@ var Map = React.createClass({
 
   componentDidUpdate: function() {
     // Update/Create markers from markerInfo
-    for(var index in this.props.markerInfos) {
-        var markerInfo = this.props.markerInfos[index];
+    for(var key in this.props.markerInfos) {
+        var markerInfo = this.props.markerInfos[key];
         this.addMarker(markerInfo);
     }
   },
