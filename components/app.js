@@ -23,7 +23,7 @@ var App = React.createClass({
        * In this case we will need to re-authenticate the user to obtain a new valid token.
        * In other words: we should not assume our access_token is valid forever.
        *
-       * For the sake of simplicity we assume the token does not expire.
+       * But, for the sake of simplicity we assume the token does not expire.
        *
        * See: https://www.instagram.com/developer/authentication/
        */
@@ -37,11 +37,15 @@ var App = React.createClass({
     };
   },
 
-  componentDidMount: function() {
+  componentWillUnmount: function() {
+    this.serverRequest.abort();
+  },
+
+  searchMedia: function(lat, lng) {
     // Define parameters
     var parameters = {
-      lat: 52.528920,
-      lng: 13.411994,
+      lat: lat,
+      lng: lng,
       access_token: App.instagram.accessToken
     }
 
@@ -80,20 +84,12 @@ var App = React.createClass({
     });
   },
 
-  componentWillUnmount: function() {
-    this.serverRequest.abort();
-  },
-
-  searchMediaForLatLng: function(lat, lng) {
-    alert('Searching Instagram media for:\n\nLat: ' + lat + '\nLng: ' + lng);
-  },
-
   render: function() {
     return (
       <div>
         <h1>Instagrab</h1>
         <Navigation />
-        <Map markers={this.state.markers} onSearch={this.searchMediaForLatLng} />
+        <Map markers={this.state.markers} onSearch={this.searchMedia} />
       </div>
     );
   }
