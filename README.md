@@ -3,7 +3,7 @@ An application for an application – written in [Node.js](https://nodejs.org/en
 
 ## How to use
 
-**Right click** on the map to find instagram posts near this location. Like or Unlike a post by **clicking on the marker**. Please note the instagram client runs in `sandbox-mode`, thus it has a [limited data-set](https://www.instagram.com/developer/sandbox/).
+**Right click** on the map to grab the latest instagram posts near this location. Like or Unlike a post by **clicking on the marker**. Please note the instagram client runs in `sandbox-mode`, thus it has a [limited data-set](https://www.instagram.com/developer/sandbox/).
 
 ## Quickstart
 
