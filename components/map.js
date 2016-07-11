@@ -40,7 +40,7 @@ var Map = React.createClass({
     // Update markers
     for(var index in this.props.markers) {
         var marker = this.props.markers[index];
-        this.addMarker(marker.lat, marker.lng, this.map);
+        this.addMarker(marker.lat, marker.lng, this.map, marker.thumbnail);
     }
   },
 
@@ -49,11 +49,18 @@ var Map = React.createClass({
     google.maps.event.clearListeners(this.map, 'mousemove');
   },
 
-  addMarker: function(lat, lng, map) {
+  addMarker: function(lat, lng, map, thumbnail) {
+    // Define image
+    var icon = {
+      url: thumbnail,
+      scaledSize: new google.maps.Size(50, 50)
+    }
+
     var latLng = new google.maps.LatLng(lat,lng);
     var marker = new google.maps.Marker({
       position: latLng,
       map: map,
+      icon: icon
       // title: 'Title',
       // icon: { ... some icon or style ... }
     });

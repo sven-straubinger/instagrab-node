@@ -67,11 +67,13 @@ var App = React.createClass({
 
         for (var index in posts) {
           var post = posts[index];
-          var id = post.id;
-          var caption = post.caption;
-          var lat = post.location.latitude;
-          var lng = post.location.longitude;
-          var marker = { id: id, title: caption, lat: lat, lng: lng };
+          var marker = {
+            id: post.id,
+            title: post.caption,
+            lat: post.location.latitude,
+            lng: post.location.longitude,
+            thumbnail: post.images.thumbnail.url
+          };
           markers.push(marker);
         }
 
@@ -154,7 +156,7 @@ var Map = React.createClass({
     // Update markers
     for (var index in this.props.markers) {
       var marker = this.props.markers[index];
-      this.addMarker(marker.lat, marker.lng, this.map);
+      this.addMarker(marker.lat, marker.lng, this.map, marker.thumbnail);
     }
   },
 
@@ -163,11 +165,20 @@ var Map = React.createClass({
     google.maps.event.clearListeners(this.map, 'mousemove');
   },
 
-  addMarker: function (lat, lng, map) {
+  addMarker: function (lat, lng, map, thumbnail) {
+    // Define image
+    var icon = {
+      url: thumbnail,
+      scaledSize: new google.maps.Size(50, 50)
+    };
+
     var latLng = new google.maps.LatLng(lat, lng);
     var marker = new google.maps.Marker({
       position: latLng,
-      map: map
+      map: map,
+      icon: icon
+      // title: 'Title',
+      // icon: { ... some icon or style ... }
     });
   },
 

@@ -64,11 +64,13 @@ var App = React.createClass({
 
         for(var index in posts) {
           var post = posts[index];
-          var id = post.id;
-          var caption = post.caption;
-          var lat = post.location.latitude;
-          var lng = post.location.longitude;
-          var marker = {id: id, title: caption, lat: lat, lng: lng}
+          var marker = {
+            id: post.id,
+            title: post.caption,
+            lat: post.location.latitude,
+            lng: post.location.longitude,
+            thumbnail: post.images.thumbnail.url
+          }
           markers.push(marker);
         }
 
