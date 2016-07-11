@@ -24,14 +24,17 @@ header nav.navbar .github-link {
     left: 0;
     background-color: orange;
     z-index: 10;
-    padding: 5px;
     height: 0;
-    display: none;
+    overflow: hidden;
+
+    -moz-transition: height 0.2s ease-out;
+ -webkit-transition: height 0.2s ease-out;
+      -o-transition: height 0.2s ease-out;
+         transition: height 0.2s ease-out;
 }
 
 #indicator.loading {
-    display: block;
-    height: inherit;
+    height: 40px;
 }
 
 #map {
