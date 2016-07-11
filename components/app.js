@@ -3,6 +3,7 @@ global.jQuery = require('jquery');
 var React = require('react');
 var Map = require('./map');
 var Header = require('./header');
+var Indicator = require('./indicator');
 
 var update = require('react-addons-update');
 
@@ -171,6 +172,7 @@ var App = React.createClass({
           onMarkerClick={this.handleLike}
           searchDistance={App.instagram.searchDistance}
         />
+        <Indicator />
       </div>
     );
   }
