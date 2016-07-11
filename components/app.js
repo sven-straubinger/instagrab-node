@@ -11,6 +11,9 @@ var App = React.createClass({
     instagram: {
 
       baseUrl: 'https://api.instagram.com/v1/media/search',
+      likeEndpoint: function(id) {
+        return 'https://api.instagram.com/v1/media/' + id + '/likes';
+      },
       searchDistance: 2500, // Default is 1km (distance=1000), max distance is 5km
       accessToken: '' // Please enter a valid access-token here
 
@@ -69,7 +72,8 @@ var App = React.createClass({
             title: post.caption,
             lat: post.location.latitude,
             lng: post.location.longitude,
-            thumbnail: post.images.thumbnail.url
+            thumbnail: post.images.thumbnail.url,
+            userHasLiked: post.user_has_liked
           }
           markers.push(marker);
         }
@@ -88,8 +92,61 @@ var App = React.createClass({
     });
   },
 
-  likePost: function(){
-    alert('Liking media with id ...');
+  handleLike: function(post) {
+    if(post.userHasLiked) {
+      this.unlikePost(post);
+    } else {
+      this.likePost(post);
+    }
+  },
+
+  likePost: function(post) {
+    var url = App.instagram.likeEndpoint(post.id);
+    this.serverRequest = jQuery.ajax({
+      context: this,
+      url: url,
+      type: 'POST',
+      dataType: 'json',
+      data: {
+        access_token: App.instagram.accessToken
+      },
+      success: function(result) {
+        alert('Liked Post');
+        // TODO Update State
+      },
+      error: function(error) {
+        var code = error.responseJSON.meta.code;
+        var msg = error.responseJSON.meta.error_message;
+        alert('Instagram responds with error code ' + code +'. ' + msg + '\n\nURL: ' + url);
+      }
+    });
+
+  },
+
+  unlikePost: function(post) {
+    var parameters = {
+      access_token: App.instagram.accessToken
+    }
+    var url = App.instagram.likeEndpoint(post.id) + "?" + jQuery.param(parameters);
+    this.serverRequest = jQuery.ajax({
+      context: this,
+      url: url,
+      type: 'DELETE',
+      dataType: 'json',
+      data: {
+        access_token: App.instagram.accessToken
+      },
+      success: function(result) {
+        alert('Unliked Post');
+        // TODO Update State
+      },
+      error: function(error) {
+        var code = error.responseJSON.meta.code;
+        var msg = error.responseJSON.meta.error_message;
+        alert('Instagram responds with error code ' + code +'. ' + msg + '\n\nURL: ' + url);
+      }
+    });
+
   },
 
   render: function() {
@@ -100,7 +157,7 @@ var App = React.createClass({
         <Map
           markers={this.state.markers}
           onSearch={this.searchPosts}
-          onMarkerClick={this.likePost}
+          onMarkerClick={this.handleLike}
           searchDistance={App.instagram.searchDistance}
         />
       </div>
