@@ -152,7 +152,6 @@ var App = React.createClass({
   render: function() {
     return (
       <div>
-        <h1>Instagrab</h1>
         <Navigation />
         <Map
           markers={this.state.markers}

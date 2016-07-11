@@ -153,11 +153,6 @@ var App = React.createClass({
     return React.createElement(
       'div',
       null,
-      React.createElement(
-        'h1',
-        null,
-        'Instagrab'
-      ),
       React.createElement(Navigation, null),
       React.createElement(Map, {
         markers: this.state.markers,
@@ -264,6 +259,11 @@ var Navigation = React.createClass({
     return React.createElement(
       "div",
       { id: "navigation" },
+      React.createElement(
+        "h1",
+        null,
+        "Instagrab"
+      ),
       React.createElement(
         "span",
         null,
