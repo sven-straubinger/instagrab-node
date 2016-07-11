@@ -26,7 +26,9 @@ var Navigation = React.createClass({
                   <a href="#">Link <span className="sr-only">(current)</span></a>
                 </li>
                 <li>
-                  <a href="https://github.com/sven-straubinger/instagrab-node" target="_blank">View on GitHub</a>
+                  <a className="github-link" href="https://github.com/sven-straubinger/instagrab-node" title="View on GitHub" target="_blank">
+                    <img src="public/images/git.png" height="34" alt="Octocat Logo" title="Octocat" />
+                  </a>
                 </li>
               </ul>
             </div>

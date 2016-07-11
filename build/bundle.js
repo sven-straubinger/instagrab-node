@@ -20,7 +20,7 @@ var App = React.createClass({
         return 'https://api.instagram.com/v1/media/' + id + '/likes';
       },
       searchDistance: 2500, // Default is 1km (distance=1000), max distance is 5km
-      accessToken: '' // Please enter a valid access-token here
+      accessToken: '50913539.1a5def0.6b4340c5e992471688d9f1ec5cad48c2' // Please enter a valid access-token here
 
       /*
        * NOTE:
@@ -326,8 +326,8 @@ var Navigation = React.createClass({
                 null,
                 React.createElement(
                   "a",
-                  { href: "https://github.com/sven-straubinger/instagrab-node", target: "_blank" },
-                  "View on GitHub"
+                  { className: "github-link", href: "https://github.com/sven-straubinger/instagrab-node", title: "View on GitHub", target: "_blank" },
+                  React.createElement("img", { src: "public/images/git.png", height: "34", alt: "Octocat Logo", title: "Octocat" })
                 )
               )
             )
