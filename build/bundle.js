@@ -218,8 +218,8 @@ var Header = React.createClass({
                 null,
                 React.createElement(
                   "a",
-                  { className: "github-link", href: "https://github.com/sven-straubinger/instagrab-node", title: "View on GitHub", target: "_blank" },
-                  React.createElement("img", { src: "public/images/git.png", height: "34", alt: "Octocat Logo", title: "Octocat" })
+                  { href: "https://github.com/sven-straubinger/instagrab-node", title: "View on GitHub", target: "_blank" },
+                  "View on GitHub"
                 )
               )
             )
