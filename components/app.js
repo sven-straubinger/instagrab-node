@@ -11,7 +11,8 @@ var App = React.createClass({
     instagram: {
 
       baseUrl: 'https://api.instagram.com/v1/media/search',
-      accessToken: '' // <-- Please enter a valid access-token here
+      searchDistance: 2500, // Default is 1km (distance=1000), max distance is 5km
+      accessToken: '' // Please enter a valid access-token here
 
       /*
        * NOTE:
@@ -46,7 +47,8 @@ var App = React.createClass({
     var parameters = {
       lat: lat,
       lng: lng,
-      access_token: App.instagram.accessToken
+      access_token: App.instagram.accessToken,
+      distance: App.instagram.searchDistance
     }
 
     // Execute request
@@ -89,7 +91,11 @@ var App = React.createClass({
       <div>
         <h1>Instagrab</h1>
         <Navigation />
-        <Map markers={this.state.markers} onSearch={this.searchMedia} />
+        <Map
+          markers={this.state.markers}
+          onSearch={this.searchMedia}
+          searchDistance={App.instagram.searchDistance}
+        />
       </div>
     );
   }

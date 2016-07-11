@@ -14,7 +14,8 @@ var App = React.createClass({
     instagram: {
 
       baseUrl: 'https://api.instagram.com/v1/media/search',
-      accessToken: '' // <-- Please enter a valid access-token here
+      searchDistance: 2500, // Default is 1km (distance=1000), max distance is 5km
+      accessToken: '' // Please enter a valid access-token here
 
       /*
        * NOTE:
@@ -49,7 +50,8 @@ var App = React.createClass({
     var parameters = {
       lat: lat,
       lng: lng,
-      access_token: App.instagram.accessToken
+      access_token: App.instagram.accessToken,
+      distance: App.instagram.searchDistance
     };
 
     // Execute request
@@ -96,7 +98,11 @@ var App = React.createClass({
         'Instagrab'
       ),
       React.createElement(Navigation, null),
-      React.createElement(Map, { markers: this.state.markers, onSearch: this.searchMedia })
+      React.createElement(Map, {
+        markers: this.state.markers,
+        onSearch: this.searchMedia,
+        searchDistance: App.instagram.searchDistance
+      })
     );
   }
 });
@@ -114,7 +120,8 @@ var Map = React.createClass({
     //  Initialize map
     this.map = new google.maps.Map(document.getElementById('map'), {
       center: { lat: 52.522307, lng: 13.399151 },
-      zoom: 10
+      zoom: 12,
+      draggableCursor: 'crosshair'
     });
 
     // Setup right-click events
@@ -123,6 +130,23 @@ var Map = React.createClass({
       var lat = event.latLng.lat();
       var lng = event.latLng.lng();
       self.props.onSearch(lat, lng);
+    });
+
+    // Use overlay to show search region
+    var radiusCircle = new google.maps.Circle({
+      strokeColor: '#0000FF',
+      strokeOpacity: 0.8,
+      strokeWeight: 1,
+      fillColor: '#00FF00',
+      fillOpacity: 0.35,
+      map: this.map,
+      center: this.map.center,
+      radius: self.props.searchDistance,
+      clickable: false
+    });
+
+    google.maps.event.addListener(this.map, 'mousemove', function (e) {
+      radiusCircle.setCenter(e.latLng);
     });
   },
 
@@ -136,6 +160,7 @@ var Map = React.createClass({
 
   componentWillUnmount: function () {
     google.maps.event.clearListeners(this.map, 'rightclick');
+    google.maps.event.clearListeners(this.map, 'mousemove');
   },
 
   addMarker: function (lat, lng, map) {
