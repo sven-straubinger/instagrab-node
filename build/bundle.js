@@ -309,23 +309,31 @@ var Map = React.createClass({
     google.maps.event.clearListeners(this.map, 'mousemove');
   },
 
-  addMarker: function (post) {
+  addMarker: function (markerInfo) {
     // Define image
     var icon = {
-      url: post.thumbnail,
+      url: markerInfo.thumbnail,
       scaledSize: new google.maps.Size(75, 75)
     };
 
-    var latLng = new google.maps.LatLng(post.lat, post.lng);
+    var hasLikedLabel = {
+      color: "rgb(235,75,89)",
+      text: "\u2661",
+      fontSize: "60px",
+      fontWeight: "bold"
+    };
+
+    var latLng = new google.maps.LatLng(markerInfo.lat, markerInfo.lng);
     var marker = new google.maps.Marker({
       position: latLng,
       map: this.map,
-      icon: icon
+      icon: icon,
+      label: markerInfo.userHasLiked ? hasLikedLabel : null
     });
 
     var self = this;
     marker.addListener('click', function () {
-      self.props.onMarkerClick(post);
+      self.props.onMarkerClick(markerInfo);
     });
   },
 
