@@ -168,13 +168,13 @@ var App = React.createClass({
       'div',
       null,
       React.createElement(Header, null),
+      React.createElement(Indicator, null),
       React.createElement(Map, {
         markerInfos: this.state.markerInfos,
         onSearch: this.searchPosts,
         onMarkerClick: this.handleLike,
         searchDistance: App.instagram.searchDistance
-      }),
-      React.createElement(Indicator, null)
+      })
     );
   }
 });
@@ -273,15 +273,27 @@ module.exports = Header;
 var React = require('react');
 
 var Indicator = React.createClass({
-    displayName: 'Indicator',
+  displayName: "Indicator",
 
-    render: function () {
-        return React.createElement(
-            'div',
-            null,
-            'Indicator'
-        );
-    }
+  render: function () {
+    return React.createElement(
+      "div",
+      { id: "indicator" },
+      React.createElement(
+        "div",
+        { className: "container-fluid" },
+        React.createElement(
+          "div",
+          { className: "row" },
+          React.createElement(
+            "div",
+            { className: "col-md-12 no-padding text-center" },
+            "Loading ..."
+          )
+        )
+      )
+    );
+  }
 });
 
 module.exports = Indicator;

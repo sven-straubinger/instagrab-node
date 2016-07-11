@@ -166,13 +166,13 @@ var App = React.createClass({
     return (
       <div>
         <Header />
+        <Indicator />
         <Map
           markerInfos={this.state.markerInfos}
           onSearch={this.searchPosts}
           onMarkerClick={this.handleLike}
           searchDistance={App.instagram.searchDistance}
         />
-        <Indicator />
       </div>
     );
   }

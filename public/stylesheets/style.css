@@ -15,6 +15,18 @@ header nav.navbar .github-link {
     padding-bottom: 8px;
 }
 
+#indicator {
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    width: 100%;
+    top: 50px;
+    left: 0;
+    background-color: orange;
+    z-index: 10;
+    padding: 5px;
+}
+
 #map {
     width: 100%;
     height: 100%; /* Fallback */
