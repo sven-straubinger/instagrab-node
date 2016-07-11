@@ -31,6 +31,7 @@ TBD
 * build your bundle with `browserify`: `browserify -t [ babelify ] main.js -o build/bundle.js`
   * if `browserify` is not installed, use `npm install browserify -g`
   * see [http://browserify.org] for detailed information
+* Bootstrap simpliy integrated via BootstrapCDN
 
 ```
 Note: By default, React will be in development mode, which is slower, and not advised for production. To use React in production mode, set the environment variable NODE_ENV to production (using envify or webpack's DefinePlugin).
@@ -57,7 +58,6 @@ TBD
 * implement tests
 * load Google Maps JavaScript asynchronously via Require.js
 * implement SEO
-* integrate Bootstrap
 * integrate SASS
 
 
