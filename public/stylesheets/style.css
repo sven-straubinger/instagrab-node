@@ -10,11 +10,6 @@ header nav.navbar.navbar-inverse {
     border-radius: 0;
 }
 
-header nav.navbar .github-link {
-    padding-top: 8px;
-    padding-bottom: 8px;
-}
-
 #indicator {
     color: white;
     font-weight: bold;
