@@ -77,7 +77,7 @@ var App = React.createClass({
             thumbnail: post.images.thumbnail.url,
             userHasLiked: post.user_has_liked
           }
-          markerInfos[markerInfo.id] = markerInfo;
+          markerInfos.push(markerInfo);
         }
 
         // Update state
@@ -113,8 +113,18 @@ var App = React.createClass({
         access_token: App.instagram.accessToken
       },
       success: function(result) {
-        alert('Liked Post');
-        // TODO Update State
+
+        var markerInfos = this.state.markerInfos;
+        var markerIndex = markerInfos.findIndex(function(m) {
+          return m.id == markerInfo.id;
+        });
+
+        var updatedMarkerInfo  = update(markerInfos[markerIndex], {userHasLiked: {$set: true}});
+        var updatedMarkerInfos = update(markerInfos, {
+          $splice: [[markerIndex, 1, updatedMarkerInfo]]
+        });
+        this.setState({markerInfos: updatedMarkerInfos});
+
       },
       error: function(error) {
         var code = error.responseJSON.meta.code;
