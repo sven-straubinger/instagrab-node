@@ -272,14 +272,26 @@ var Navigation = React.createClass({
       "div",
       { id: "navigation" },
       React.createElement(
-        "h1",
-        null,
-        "Instagrab"
-      ),
-      React.createElement(
-        "span",
-        null,
-        "Navigation"
+        "div",
+        { className: "container-fluid" },
+        React.createElement(
+          "div",
+          { className: "row" },
+          React.createElement(
+            "div",
+            { className: "col-md-12" },
+            React.createElement(
+              "h1",
+              null,
+              "Instagrab"
+            ),
+            React.createElement(
+              "span",
+              null,
+              "Navigation"
+            )
+          )
+        )
       )
     );
   }

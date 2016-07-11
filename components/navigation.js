@@ -5,9 +5,15 @@ var Navigation = React.createClass({
   render: function() {
     return (
       <div id="navigation">
-        <h1>Instagrab</h1>
-        <span>Navigation</span>
-        {/* <a href="/" title="Link to homepage">Home</a> */}
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-12">
+              <h1>Instagrab</h1>
+              <span>Navigation</span>
+              {/* <a href="/" title="Link to homepage">Home</a> */}
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
