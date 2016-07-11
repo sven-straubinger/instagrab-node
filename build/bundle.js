@@ -241,7 +241,19 @@ var Map = React.createClass({
   },
 
   render: function () {
-    return React.createElement('div', { id: 'map' });
+    return React.createElement(
+      'div',
+      { className: 'container-fluid' },
+      React.createElement(
+        'div',
+        { className: 'row' },
+        React.createElement(
+          'div',
+          { className: 'col-md-12 no-padding' },
+          React.createElement('div', { id: 'map' })
+        )
+      )
+    );
   }
 
 });

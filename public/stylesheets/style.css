@@ -12,3 +12,7 @@
     height: 100%; /* Fallback */
     height: 100vH;
 }
+
+.no-padding {
+    padding: 0 !important;
+}

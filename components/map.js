@@ -72,7 +72,13 @@ var Map = React.createClass({
 
   render: function() {
     return (
-      <div id="map"></div>
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-md-12 no-padding">
+            <div id="map" />
+          </div>
+        </div>
+      </div>
     );
   }
 
