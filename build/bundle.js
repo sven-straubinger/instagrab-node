@@ -309,20 +309,6 @@ var Navigation = React.createClass({
               { className: "nav navbar-nav navbar-right" },
               React.createElement(
                 "li",
-                { className: "active" },
-                React.createElement(
-                  "a",
-                  { href: "#" },
-                  "Link ",
-                  React.createElement(
-                    "span",
-                    { className: "sr-only" },
-                    "(current)"
-                  )
-                )
-              ),
-              React.createElement(
-                "li",
                 null,
                 React.createElement(
                   "a",

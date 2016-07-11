@@ -22,9 +22,6 @@ var Navigation = React.createClass({
 
             <div className="collapse navbar-collapse" id="navbar-collapse">
               <ul className="nav navbar-nav navbar-right">
-                <li className="active">
-                  <a href="#">Link <span className="sr-only">(current)</span></a>
-                </li>
                 <li>
                   <a className="github-link" href="https://github.com/sven-straubinger/instagrab-node" title="View on GitHub" target="_blank">
                     <img src="public/images/git.png" height="34" alt="Octocat Logo" title="Octocat" />
