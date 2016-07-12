@@ -45,10 +45,6 @@ var App = React.createClass({
     };
   },
 
-  componentWillUnmount: function() {
-    this.serverRequest.abort();
-  },
-
   searchPosts: function(lat, lng) {
     // Define url
     var parameters = {
