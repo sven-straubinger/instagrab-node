@@ -2,6 +2,15 @@ var React = require('react');
 
 var Map = React.createClass({
 
+  statics: {
+    hasLikedLabel: {
+      color: "rgb(235,75,89)",
+      text: "\u2661",
+      fontSize: "60px",
+      fontWeight: "bold"
+    }
+  },
+
   componentDidMount: function() {
     //  Initialize map ...
     this.markers = [];
@@ -60,26 +69,15 @@ var Map = React.createClass({
   },
 
   addMarker: function(markerInfo) {
-
-    // Define image
-    var icon = {
-      url: markerInfo.thumbnail,
-      scaledSize: new google.maps.Size(75, 75)
-    }
-
-    var hasLikedLabel = {
-      color: "rgb(235,75,89)",
-      text: "\u2661",
-      fontSize: "60px",
-      fontWeight: "bold"
-    };
-
     var latLng = new google.maps.LatLng(markerInfo.lat,markerInfo.lng);
     var marker = new google.maps.Marker({
       position: latLng,
       map: this.map,
-      icon: icon,
-      label: markerInfo.userHasLiked ? hasLikedLabel : null
+      icon: {
+        url: markerInfo.thumbnail,
+        scaledSize: new google.maps.Size(75, 75)
+      },
+      label: markerInfo.userHasLiked ? Map.hasLikedLabel : null
     });
 
     var self = this;

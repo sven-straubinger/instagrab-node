@@ -286,8 +286,17 @@ module.exports = Indicator;
 var React = require('react');
 
 var Map = React.createClass({
-  displayName: 'Map',
+  displayName: "Map",
 
+
+  statics: {
+    hasLikedLabel: {
+      color: "rgb(235,75,89)",
+      text: "\u2661",
+      fontSize: "60px",
+      fontWeight: "bold"
+    }
+  },
 
   componentDidMount: function () {
     //  Initialize map ...
@@ -346,26 +355,15 @@ var Map = React.createClass({
   },
 
   addMarker: function (markerInfo) {
-
-    // Define image
-    var icon = {
-      url: markerInfo.thumbnail,
-      scaledSize: new google.maps.Size(75, 75)
-    };
-
-    var hasLikedLabel = {
-      color: "rgb(235,75,89)",
-      text: "\u2661",
-      fontSize: "60px",
-      fontWeight: "bold"
-    };
-
     var latLng = new google.maps.LatLng(markerInfo.lat, markerInfo.lng);
     var marker = new google.maps.Marker({
       position: latLng,
       map: this.map,
-      icon: icon,
-      label: markerInfo.userHasLiked ? hasLikedLabel : null
+      icon: {
+        url: markerInfo.thumbnail,
+        scaledSize: new google.maps.Size(75, 75)
+      },
+      label: markerInfo.userHasLiked ? Map.hasLikedLabel : null
     });
 
     var self = this;
@@ -387,15 +385,15 @@ var Map = React.createClass({
 
   render: function () {
     return React.createElement(
-      'div',
-      { className: 'container-fluid' },
+      "div",
+      { className: "container-fluid" },
       React.createElement(
-        'div',
-        { className: 'row' },
+        "div",
+        { className: "row" },
         React.createElement(
-          'div',
-          { className: 'col-md-12 no-padding' },
-          React.createElement('div', { id: 'map' })
+          "div",
+          { className: "col-md-12 no-padding" },
+          React.createElement("div", { id: "map" })
         )
       )
     );
