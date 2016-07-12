@@ -3,7 +3,7 @@ var React = require('react');
 var Map = React.createClass({
 
   componentDidMount: function() {
-    //  Initialize
+    //  Initialize map ...
     this.markers = [];
     this.map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 52.522307, lng: 13.399151},
@@ -16,7 +16,7 @@ var Map = React.createClass({
       }]
     });
 
-    // Setup right-click events
+    // ... setup right-click events for mouse cursor ...
     var self = this;
     google.maps.event.addListener(this.map, "rightclick", function(event) {
       var lat = event.latLng.lat();
@@ -24,7 +24,7 @@ var Map = React.createClass({
       self.props.onSearch(lat, lng);
     });
 
-    // Use overlay to show search region
+    // ... add overlay to illustrate searchable region
     var radiusCircle = new google.maps.Circle({
       strokeColor: 'rgb(235,75,89)',
       strokeOpacity: 0.45,
@@ -36,17 +36,17 @@ var Map = React.createClass({
       radius: self.props.searchDistance,
       clickable:false
     });
-
     google.maps.event.addListener(this.map, 'mousemove', function(e) {
       radiusCircle.setCenter(e.latLng);
     });
+
   },
 
   componentDidUpdate: function() {
-    // Clear
+    // Clear existing markers ...
     this.clearMarkers();
 
-    // Update/Create markers from markerInfo
+    // ... and create new markers posts
     for(var index in this.props.posts) {
         var markerInfo = this.props.posts[index];
         this.addMarker(markerInfo);
@@ -54,6 +54,7 @@ var Map = React.createClass({
   },
 
   componentWillUnmount: function() {
+    // Clear map's event listener
     google.maps.event.clearListeners(this.map, 'rightclick');
     google.maps.event.clearListeners(this.map, 'mousemove');
   },
