@@ -51,52 +51,38 @@ var App = React.createClass({
   },
 
   searchPosts: function(lat, lng) {
-    this.setState({isLoading: true});
-    // Define parameters
+    // Define url
     var parameters = {
       lat: lat,
       lng: lng,
       access_token: App.instagram.accessToken,
       distance: App.instagram.searchDistance
     }
+    var url = App.instagram.searchEndpoint + "?" + jQuery.param(parameters);
 
     // Execute request
-    var url = App.instagram.searchEndpoint + "?" + jQuery.param(parameters);
-    this.serverRequest = jQuery.ajax({
-      context: this,
-      url: url,
-      type: 'GET',
-      dataType: 'json',
-      success: function(result) {
-        var markerInfos = [];
-        var posts = result.data;
+    this.requestUrl(url, 'GET', function(result) {
+      var markerInfos = [];
+      var posts = result.data;
 
-        for(var index in posts) {
-          var post = posts[index];
-          var markerInfo = {
-            id: post.id,
-            lat: post.location.latitude,
-            lng: post.location.longitude,
-            thumbnail: post.images.thumbnail.url,
-            userHasLiked: post.user_has_liked
-          }
-          markerInfos.push(markerInfo);
+      for(var index in posts) {
+        var post = posts[index];
+        var markerInfo = {
+          id: post.id,
+          lat: post.location.latitude,
+          lng: post.location.longitude,
+          thumbnail: post.images.thumbnail.url,
+          userHasLiked: post.user_has_liked
         }
-
-        // Update state
-        this.setState({
-          markerInfos: markerInfos,
-          isLoading: false
-        });
-
-      },
-      error: function(error) {
-        var meta = error.responseJSON.meta;
-        alert('Instagram: Error ' + meta.code +'. ' + meta.error_message);
-        this.setState({
-          isLoading: false
-        });
+        markerInfos.push(markerInfo);
       }
+
+      // Update state
+      this.setState({
+        markerInfos: markerInfos,
+        isLoading: false
+      });
+
     });
   },
 
@@ -166,6 +152,27 @@ var App = React.createClass({
       $splice: [[markerIndex, 1, updatedMarkerInfo]]
     });
     this.setState({markerInfos: updatedMarkerInfos});
+  },
+
+  requestUrl: function(url, type, onSuccess) {
+    // Indicate loading
+    this.setState({isLoading: true});
+
+    // Call
+    this.serverRequest = jQuery.ajax({
+      context: this,
+      url: url,
+      type: type,
+      dataType: 'json',
+      success: onSuccess,
+      error: function(error) {
+        var meta = error.responseJSON.meta;
+        alert('Instagram: Error ' + meta.code +'. ' + meta.error_message);
+
+        // Stop loading indication
+        this.setState({isLoading: false});
+      }
+    });
   },
 
   render: function() {
