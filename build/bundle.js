@@ -132,9 +132,13 @@ var App = React.createClass({
       success: onSuccess,
       data: data,
       error: function (error) {
-        var code = error.responseJSON.meta.code;
-        var msg = error.responseJSON.meta.error_message;
-        alert('Instagram responds with error ' + code + '. ' + msg);
+        if (typeof error.responseJSON === "undefined") {
+          alert('Hey there, seems like something went wrong. Please note, that the app works best with Safari, due the "Access-Control-Allow-Origin" policy of other browsers.');
+        } else {
+          var code = error.responseJSON.meta.code;
+          var msg = error.responseJSON.meta.error_message;
+          alert('Instagram responds with error ' + code + '. ' + msg);
+        }
       },
       complete: function () {
         // ... stop loading indication
