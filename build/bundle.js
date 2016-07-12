@@ -342,7 +342,7 @@ var Map = React.createClass({
     // Clear existing markers ...
     this.clearMarkers();
 
-    // ... and create new markers posts
+    // ... and create new markers from posts
     for (var index in this.props.posts) {
       var markerInfo = this.props.posts[index];
       this.addMarker(markerInfo);
@@ -358,9 +358,8 @@ var Map = React.createClass({
 
   addMarker: function (post) {
     // Create marker ...
-    var latLng = new google.maps.LatLng(post.lat, post.lng);
     var marker = new google.maps.Marker({
-      position: latLng,
+      position: new google.maps.LatLng(post.lat, post.lng),
       map: this.map,
       label: post.userHasLiked ? Map.hasLikedLabel : null,
       icon: {
