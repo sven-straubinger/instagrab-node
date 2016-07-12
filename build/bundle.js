@@ -132,8 +132,9 @@ var App = React.createClass({
       success: onSuccess,
       data: data,
       error: function (error) {
-        var meta = error.responseJSON.meta;
-        alert('Instagram: Error ' + meta.code + '. ' + meta.error_message);
+        var code = error.responseJSON.meta.code;
+        var msg = error.responseJSON.meta.error_message;
+        alert('Instagram responds with error ' + code + '. ' + msg);
       },
       complete: function () {
         // ... stop loading indication
