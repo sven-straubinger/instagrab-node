@@ -127,10 +127,10 @@ var App = React.createClass({
   },
 
   requestUrl: function (url, type, onSuccess, data) {
-    // Indicate loading
+    // Start loading indication ...
     this.setState({ isLoading: true });
 
-    // Call
+    // ... call ...
     this.serverRequest = jQuery.ajax({
       context: this,
       url: url,
@@ -143,6 +143,7 @@ var App = React.createClass({
         alert('Instagram: Error ' + meta.code + '. ' + meta.error_message);
       },
       complete: function () {
+        // ... stop loading indication
         this.setState({ isLoading: false });
       }
     });
