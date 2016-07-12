@@ -13,12 +13,14 @@ var App = React.createClass({
 
     instagram: {
 
-      searchEndpoint: 'https://api.instagram.com/v1/media/search',
+      accessToken: '50913539.1a5def0.6b4340c5e992471688d9f1ec5cad48c2', // Please enter a valid access-token here
+      searchDistance: 3000, // Instagram default is 1km (distance=1000), max distance is 5km
+      searchEndpoint: function() {
+        return 'https://api.instagram.com/v1/media/search'
+      },
       likeEndpoint: function(id) {
         return 'https://api.instagram.com/v1/media/' + id + '/likes';
-      },
-      searchDistance: 2500, // Default is 1km (distance=1000), max distance is 5km
-      accessToken: '50913539.1a5def0.6b4340c5e992471688d9f1ec5cad48c2' // Please enter a valid access-token here
+      }
 
       /*
        * NOTE:
@@ -53,7 +55,7 @@ var App = React.createClass({
       access_token: App.instagram.accessToken,
       distance: App.instagram.searchDistance
     }
-    var url = App.instagram.searchEndpoint + "?" + jQuery.param(parameters);
+    var url = App.instagram.searchEndpoint() + "?" + jQuery.param(parameters);
 
     // Execute request
     this.requestUrl(url, 'GET', function(result) {
