@@ -29,14 +29,15 @@ An application for an application – written in [Node.js](https://nodejs.org/en
 ![Alt text](/public/images/instagrab-screenshot.png?raw=true "Optional Title")
 
 
-## Components
+## Component Structure
 
 ```
-- App
--- Map
--- Navigation
---- SearchBar
---- *
+App
+|
+|-- Header
+|-- Indicator
+|-- Map
+
 ```
 
 ## Test
