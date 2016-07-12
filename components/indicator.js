@@ -8,7 +8,7 @@ var Indicator = React.createClass({
             <div className="container-fluid">
               <div className="row">
                 <div className="col-md-12 no-padding text-center">
-                  <div className="text" Loading> Loading ... </div>
+                  <div className="text"> Loading ... </div>
                 </div>
               </div>
             </div>
