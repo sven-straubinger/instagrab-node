@@ -35,7 +35,7 @@ Nesting helps, to write maintainable and clean CSS rules with focus on readabili
 
 ### Question 6: What tools or libraries do you use when testing react components?
 
-`require('react-addons-test-utils')` – but honestly never used it.
+`require('react-addons-test-utils')` – but I honestly did not use it yet.
 
 ---
 
