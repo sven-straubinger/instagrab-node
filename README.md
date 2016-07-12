@@ -61,3 +61,4 @@ https://www.instagram.com/developer/sandbox/
 * implement tests
 * load Google Maps JavaScript and Bootstrap via `Require.js`
 * integrate `SASS`
+* mobile optimizations
