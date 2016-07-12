@@ -27,7 +27,7 @@ var App = React.createClass({
        * See: https://www.instagram.com/developer/authentication/
        */
 
-      accessToken: '50913539.1a5def0.6b4340c5e992471688d9f1ec5cad48c2', // Please enter a valid access-token here
+      accessToken: '50913539.1a5def0.6b4340c5e992471688d9f1ec5cad48c2',
       searchDistance: 3000, // Instagram default is 1km (distance=1000), max distance is 5km
       searchEndpoint: function() {
         return 'https://api.instagram.com/v1/media/search'
