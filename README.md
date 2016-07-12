@@ -44,7 +44,7 @@ App: (Glues everything together; takes care of API calls)
 
 After Nov. 17 2015 Instagram made some changes to their API. Apps created on or after Nov 17, 2015 will start in Sandbox Mode and function on newly updated API rate-limits and behaviors:
 
-``
+```
 Data is restricted to sandbox users and the 20 most recent media from each sandbox user.
 []
 As another example, let's consider an endpoint that returns a list of media: /tags/{tag-name}/media/recent. The response returned by this endpoint will contain only media with the given tag, as expected. But instead of returning media from any public Instagram user, it will return only media that belongs to your sandbox users, restricted to the last 20 for each user.
