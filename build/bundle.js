@@ -295,7 +295,11 @@ var Indicator = React.createClass({
           React.createElement(
             'div',
             { className: 'col-md-12 no-padding text-center' },
-            'Loading ...'
+            React.createElement(
+              'div',
+              { className: 'text', Loading: true },
+              ' Loading ... '
+            )
           )
         )
       )
