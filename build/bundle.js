@@ -350,29 +350,32 @@ var Map = React.createClass({
   },
 
   componentWillUnmount: function () {
-    // Clear map's event listener
+    // Clear map's and markers' event listener
     google.maps.event.clearListeners(this.map, 'rightclick');
     google.maps.event.clearListeners(this.map, 'mousemove');
+    this.clearMarkers();
   },
 
-  addMarker: function (markerInfo) {
-    var latLng = new google.maps.LatLng(markerInfo.lat, markerInfo.lng);
+  addMarker: function (post) {
+    // Create marker ...
+    var latLng = new google.maps.LatLng(post.lat, post.lng);
     var marker = new google.maps.Marker({
       position: latLng,
       map: this.map,
+      label: post.userHasLiked ? Map.hasLikedLabel : null,
       icon: {
-        url: markerInfo.thumbnail,
+        url: post.thumbnail,
         scaledSize: new google.maps.Size(75, 75)
-      },
-      label: markerInfo.userHasLiked ? Map.hasLikedLabel : null
+      }
     });
 
+    // ... add click-listener ...
     var self = this;
     marker.addListener('click', function () {
-      self.props.onMarkerClick(markerInfo);
+      self.props.onMarkerClick(post);
     });
 
-    // Store marker
+    // ... store marker
     this.markers.push(marker);
   },
 
