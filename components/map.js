@@ -47,8 +47,8 @@ var Map = React.createClass({
     this.clearMarkers();
 
     // Update/Create markers from markerInfo
-    for(var index in this.props.markerInfos) {
-        var markerInfo = this.props.markerInfos[index];
+    for(var index in this.props.posts) {
+        var markerInfo = this.props.posts[index];
         this.addMarker(markerInfo);
     }
   },

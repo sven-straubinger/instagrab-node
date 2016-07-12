@@ -146,7 +146,7 @@ var App = React.createClass({
         <Header />
         <Indicator isLoading={this.state.isLoading}/>
         <Map
-          markerInfos={this.state.posts}
+          posts={this.state.posts}
           onSearch={this.searchPosts}
           onMarkerClick={this.handleLike}
           searchDistance={App.instagram.searchDistance}
