@@ -92,23 +92,11 @@ var App = React.createClass({
 
   likePost: function(markerInfo) {
     var url = App.instagram.likeEndpoint(markerInfo.id);
-    this.serverRequest = jQuery.ajax({
-      context: this,
-      url: url,
-      type: 'POST',
-      dataType: 'json',
-      data: {
-        access_token: App.instagram.accessToken
-      },
-      success: function(result) {
-        this.updateUserHasLiked(markerInfo, true);
-      },
-      error: function(error) {
-        var meta = error.responseJSON.meta;
-        alert('Instagram: Error ' + meta.code +'. ' + meta.error_message);
-      }
+    this.requestUrl(url, 'POST', function(result) {
+      this.updateUserHasLiked(markerInfo, true);
+    },{
+      access_token: App.instagram.accessToken
     });
-
   },
 
   unlikePost: function(markerInfo) {
@@ -116,23 +104,9 @@ var App = React.createClass({
       access_token: App.instagram.accessToken
     }
     var url = App.instagram.likeEndpoint(markerInfo.id) + "?" + jQuery.param(parameters);
-    this.serverRequest = jQuery.ajax({
-      context: this,
-      url: url,
-      type: 'DELETE',
-      dataType: 'json',
-      data: {
-        access_token: App.instagram.accessToken
-      },
-      success: function(result) {
-        this.updateUserHasLiked(markerInfo, false);
-      },
-      error: function(error) {
-        var meta = error.responseJSON.meta;
-        alert('Instagram: Error ' + meta.code +'. ' + meta.error_message);
-      }
+    this.requestUrl(url, 'POST', function(result) {
+      this.updateUserHasLiked(markerInfo, false);
     });
-
   },
 
   updateUserHasLiked: function(markerInfo, hasLiked) {
@@ -150,7 +124,7 @@ var App = React.createClass({
     this.setState({markerInfos: updatedMarkerInfos});
   },
 
-  requestUrl: function(url, type, onSuccess) {
+  requestUrl: function(url, type, onSuccess, data) {
     // Indicate loading
     this.setState({isLoading: true});
 
@@ -161,6 +135,7 @@ var App = React.createClass({
       type: type,
       dataType: 'json',
       success: onSuccess,
+      data: data,
       error: function(error) {
         var meta = error.responseJSON.meta;
         alert('Instagram: Error ' + meta.code +'. ' + meta.error_message);
