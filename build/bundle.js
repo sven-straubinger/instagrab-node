@@ -99,7 +99,7 @@ var App = React.createClass({
       access_token: App.instagram.accessToken
     };
     var url = App.instagram.likeEndpoint(post.id) + "?" + jQuery.param(parameters);
-    this.requestUrl(url, 'POST', function (result) {
+    this.requestUrl(url, 'DELETE', function (result) {
       this.updateUserHasLiked(post, false);
     });
   },
