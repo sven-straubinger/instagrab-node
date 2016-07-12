@@ -8,7 +8,12 @@ var Map = React.createClass({
     this.map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 52.522307, lng: 13.399151},
       zoom: 12,
-      draggableCursor:'crosshair'
+      draggableCursor:'crosshair',
+      styles: [{
+        featureType: "poi",
+        elementType: "labels",
+        stylers: [{ visibility: "off" }]
+      }]
     });
 
     // Setup right-click events
