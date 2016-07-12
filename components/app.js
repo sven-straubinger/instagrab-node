@@ -56,10 +56,10 @@ var App = React.createClass({
 
     this.requestUrl(url, 'GET', function(result) {
       var markerInfos = [];
-      var posts = result.data;
+      var data = result.data;
 
-      for(var index in posts) {
-        var post = posts[index];
+      for(var index in data) {
+        var post = data[index];
         var markerInfo = {
           id: post.id,
           lat: post.location.latitude,
