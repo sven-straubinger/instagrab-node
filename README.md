@@ -13,7 +13,7 @@ An application for an application – written in [Node.js](https://nodejs.org/en
 
 1. checkout project `git clone https://github.com/sven-straubinger/instagrab-node.git instagrab-node`
 2. run `npm install`
-3.  run `rum start`
+3. run `npm start`
 4. open index.html
 
 
