@@ -5,7 +5,7 @@ An application for an application – written in [Node.js](https://nodejs.org/en
 
 * **Right click** on the map to grab the latest instagram posts near this location.
 * Like or Unlike a post by **clicking on the marker**.
-* Please note that the instagram client runs in `sandbox-mode`, which results in a limited result-set of posts, concretely  only the posts of the registered the sandbox-users. [Learn more about this restriction](https://www.instagram.com/developer/sandbox/).
+* Please note that the instagram client runs in `sandbox-mode`, which results in a limited result-set of posts – concretely  only the posts of the registered the sandbox-users. [Learn more about this restriction](https://www.instagram.com/developer/sandbox/).
 * Please note: the app works best with Safari due `Access-Control-Allow-Origin` issues in other browsers.
 
 
