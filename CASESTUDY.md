@@ -33,10 +33,6 @@ Nesting helps, to write maintainable and clean CSS rules with focus on readabili
 
 ---
 
-### Question 5: What is your favorite ECMA Script 2015(+) feature and why?
-
----
-
 ### Question 6: What tools or libraries do you use when testing react components?
 
 `require('react-addons-test-utils')` – but honestly never used it.
@@ -45,13 +41,20 @@ Nesting helps, to write maintainable and clean CSS rules with focus on readabili
 
 ### Question 7: What is your experience with stateless (functional) components, and when would you either use them, or not use them?
 
----
-
-### Question 8: How important is semantic markup when your pages are built in React Components?
+Semantic
+They are pure functional transforms of their input, with zero boilerplate. However, you may still specify .propTypes and .defaultProps by setting them as properties on the function, just as you would set them on an ES6 class.
 
 ---
 
 ### Question 9: What would be a perfect `<use />` case? Please reply with code example.
+
+var use = React.createClass({
+  render: function(){
+    return (
+    
+    )
+  }
+});
 
 ---
 
