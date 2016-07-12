@@ -32,16 +32,6 @@ var Header = React.createClass({
 
           </div>
         </nav>
-
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12 col-sm-12-col-xs-12 text-center">
-              <span>Lat: 52.23523</span><br />
-              <span>Lat:  9.25135</span>
-            </div>
-          </div>
-        </div>
-
       </header>
     )
   }

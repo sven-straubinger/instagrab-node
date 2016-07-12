@@ -218,29 +218,6 @@ var Header = React.createClass({
             )
           )
         )
-      ),
-      React.createElement(
-        "div",
-        { className: "container" },
-        React.createElement(
-          "div",
-          { className: "row" },
-          React.createElement(
-            "div",
-            { className: "col-md-12 col-sm-12-col-xs-12 text-center" },
-            React.createElement(
-              "span",
-              null,
-              "Lat: 52.23523"
-            ),
-            React.createElement("br", null),
-            React.createElement(
-              "span",
-              null,
-              "Lat:  9.25135"
-            )
-          )
-        )
       )
     );
   }
