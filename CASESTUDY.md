@@ -8,9 +8,9 @@ Since CSS is a living standard, it depends how `latest` is interpreted:
 
 ### Question 2: What are the CSS methodologies you use to structure your CSS and why is this important to you?
 
-I am used to the OOCSS methodology due my work with bootstrap. For me, it feels most natural, compared to other known methodologies like BEM, where I have personally bad experince, especially in terms of readability.
+I am used to the OOCSS methodology due my work with bootstrap. For me, it feels more natural, compared to other known methodologies like BEM, where I have personally bad experience, especially in terms of readability.
 
-Furthermore I focus on the **DRY** approach: Redundant CSS rules (on purpose or accidentally) will lead to less flexibility when it comes to change requests or bug fixes. I aim to apply a CSS rule to most sections of a website as possible (e.g. style definitions of continuous text). It's easier to add exceptions once they are really needed than to remove or maintain complex CSS structures.
+Furthermore, I focus on the **DRY** approach: Redundant CSS rules (on purpose or accidentally) will lead to less flexibility when it comes to change requests or bug fixes. I aim to apply a CSS rule to most sections of a website as possible (e.g. style definitions of continuous text). It's easier to add exceptions once they are really needed than to remove or maintain complex CSS structures.
 
 Last but not least, **consistency** helps me (and everyone else, who works with the code) to keep a clear head and overview.
 
