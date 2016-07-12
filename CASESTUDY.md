@@ -25,6 +25,7 @@ Nesting helps, to write maintainable and clean CSS rules with focus on readabili
 
 ### Question 4: What is your preferred toolset when building a React app?
 * Node
+* SCM like Git
 * npm with Browserify / Watchify / Babelify for JSX
 * Sublime3
 * Google Chrome with React Developer Tools
