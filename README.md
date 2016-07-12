@@ -33,6 +33,7 @@ TBD
   * see [http://browserify.org] for detailed information
 * Bootstrap simpliy integrated via BootstrapCDN
 * it's highly recommended to use [React Developer Tools](https://facebook.github.io/react/blog/2015/09/02/new-react-developer-tools.html)
+* The app won't work with Google Chrome, since the pure frontend-logic and cross-domain AJAX calls are prohibited by Chromes `Access-Control-Allow-Origin` policy.
 
 ```
 Note: By default, React will be in development mode, which is slower, and not advised for production. To use React in production mode, set the environment variable NODE_ENV to production (using envify or webpack's DefinePlugin).
