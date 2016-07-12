@@ -82,10 +82,7 @@ var App = React.createClass({
       }
 
       // Update state
-      this.setState({
-        markerInfos: markerInfos,
-        isLoading: false
-      });
+      this.setState({ markerInfos: markerInfos });
     });
   },
 
@@ -169,8 +166,8 @@ var App = React.createClass({
       error: function (error) {
         var meta = error.responseJSON.meta;
         alert('Instagram: Error ' + meta.code + '. ' + meta.error_message);
-
-        // Stop loading indication
+      },
+      complete: function () {
         this.setState({ isLoading: false });
       }
     });
@@ -304,7 +301,7 @@ var Indicator = React.createClass({
             { className: 'col-md-12 no-padding text-center' },
             React.createElement(
               'div',
-              { className: 'text', Loading: true },
+              { className: 'text' },
               ' Loading ... '
             )
           )
