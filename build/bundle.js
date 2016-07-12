@@ -43,7 +43,7 @@ var App = React.createClass({
 
   getInitialState: function () {
     return {
-      markerInfos: [],
+      posts: [],
       isLoading: false
     };
   },
@@ -73,7 +73,7 @@ var App = React.createClass({
         posts.push(post);
       }
 
-      this.setState({ markerInfos: posts });
+      this.setState({ posts: posts });
     });
   },
 
@@ -107,16 +107,16 @@ var App = React.createClass({
   updateUserHasLiked: function (post, hasLiked) {
     // Make use of Immutability Helpers
     // https://facebook.github.io/react/docs/update.html
-    var markerInfos = this.state.markerInfos;
-    var markerIndex = markerInfos.findIndex(function (m) {
-      return m.id == post.id;
+    var posts = this.state.posts;
+    var index = posts.findIndex(function (p) {
+      return p.id == post.id;
     });
 
-    var updatedMarkerInfo = update(markerInfos[markerIndex], { userHasLiked: { $set: hasLiked } });
-    var updatedMarkerInfos = update(markerInfos, {
-      $splice: [[markerIndex, 1, updatedMarkerInfo]]
+    var updatedPost = update(posts[index], { userHasLiked: { $set: hasLiked } });
+    var updatedPosts = update(posts, {
+      $splice: [[index, 1, updatedPost]]
     });
-    this.setState({ markerInfos: updatedMarkerInfos });
+    this.setState({ posts: updatedPosts });
   },
 
   requestUrl: function (url, type, onSuccess, data) {
@@ -149,7 +149,7 @@ var App = React.createClass({
       React.createElement(Header, null),
       React.createElement(Indicator, { isLoading: this.state.isLoading }),
       React.createElement(Map, {
-        markerInfos: this.state.markerInfos,
+        markerInfos: this.state.posts,
         onSearch: this.searchPosts,
         onMarkerClick: this.handleLike,
         searchDistance: App.instagram.searchDistance
