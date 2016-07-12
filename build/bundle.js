@@ -49,16 +49,14 @@ var App = React.createClass({
   },
 
   searchPosts: function (lat, lng) {
-    // Define url
-    var parameters = {
+
+    var url = App.instagram.searchEndpoint() + "?" + jQuery.param({
       lat: lat,
       lng: lng,
       access_token: App.instagram.accessToken,
       distance: App.instagram.searchDistance
-    };
-    var url = App.instagram.searchEndpoint() + "?" + jQuery.param(parameters);
+    });
 
-    // Execute request
     this.requestUrl(url, 'GET', function (result) {
       var markerInfos = [];
       var posts = result.data;
@@ -75,7 +73,6 @@ var App = React.createClass({
         markerInfos.push(markerInfo);
       }
 
-      // Update state
       this.setState({ markerInfos: markerInfos });
     });
   },
