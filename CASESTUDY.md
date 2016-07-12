@@ -41,8 +41,7 @@ Nesting helps, to write maintainable and clean CSS rules with focus on readabili
 
 ### Question 7: What is your experience with stateless (functional) components, and when would you either use them, or not use them?
 
-Semantic
-They are pure functional transforms of their input, with zero boilerplate. However, you may still specify .propTypes and .defaultProps by setting them as properties on the function, just as you would set them on an ES6 class.
+I would use stateless components to add "semantic sugar", since they are quick and easy to use.
 
 ---
 
