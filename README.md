@@ -59,6 +59,7 @@ https://www.instagram.com/developer/sandbox/
 ## Outlook
 
 * implement tests
+* setup express.js and instagram-node
 * load Google Maps JavaScript and Bootstrap via `Require.js`
 * integrate `SASS`
 * mobile optimizations
