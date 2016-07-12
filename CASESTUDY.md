@@ -48,6 +48,7 @@ They are pure functional transforms of their input, with zero boilerplate. Howev
 
 ### Question 9: What would be a perfect `<use />` case? Please reply with code example.
 
+```
 var use = React.createClass({
   render: function(){
     return (
@@ -55,6 +56,7 @@ var use = React.createClass({
     )
   }
 });
+```
 
 ---
 
