@@ -6,10 +6,8 @@ var React = require('react');
 var Map = require('./map');
 var Header = require('./header');
 var Indicator = require('./indicator');
-
 var update = require('react-addons-update');
 
-/* App Component */
 var App = React.createClass({
   displayName: 'App',
 
