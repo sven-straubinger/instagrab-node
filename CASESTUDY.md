@@ -9,6 +9,12 @@ Depending on, how `latest` is interpreted:
 
 ### Question 2: What are the CSS methodologies you use to structure your CSS and why is this important to you?
 
+I mainly focus on the DRY methodology: Usually, one or a couple CSS rules should target one purpose. If there are more CSS rules needed. Focus on generic styles, that can be easily reused and **changed** all over the website.
+
+Furthermore, the naming focuses on the purpose of the rule, not on the concrete characteristics the rule describes. For example, I would prefer naming a `div` CSS-class`info-box` instead of `top-red-box`, since the purpose will mostly stay the same while the visual design will change more easily.
+
+Last but not least, consistency helps everyone, who has to work on the same code base. 
+
 ---
 
 ### Question 3: What are your thoughts on nesting using a CSS pre-processor?
@@ -23,6 +29,7 @@ Nesting helps, to write maintainable and clean CSS rules with focus on readabili
 * Sublime3
 * Google Chrome with React Developer Tools
 * iTerm2 
+* Spotify
 
 ---
 
