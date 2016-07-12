@@ -1,6 +1,6 @@
 ### Question 1: What are the latest CSS layout methods?
 
-Depending on, how `latest` is interpreted:
+Since CSS is a living standard, it depends how `latest` is interpreted:
 * the latest CSS **drafts** from the W3C can be found here:  http://www.w3.org/Style/CSS/current-work
 * the latest CSS **publications** from the W3C contains CSS3 features like `media queries`, `keyframe animations` or `transforms` and can be found here: http://www.w3.org/TR/css-2010/
 
@@ -8,11 +8,11 @@ Depending on, how `latest` is interpreted:
 
 ### Question 2: What are the CSS methodologies you use to structure your CSS and why is this important to you?
 
-I mainly focus on the **DRY** methodology: Usually, one or a couple CSS rules should target one purpose. If there are more CSS rules needed. Focus on generic styles, that can be easily reused and **changed** all over the website.
+I am used to the OOCSS methodology due my work with bootstrap. For me, it feels most natural, compared to other known methodologies like BEM, where I have personally bad experince, especially in terms of readability.
 
-Furthermore, the naming focuses on the purpose of the rule, not on the concrete characteristics the rule describes. For example, I would prefer naming a `div` CSS-class`info-box` instead of `top-red-box`, since the purpose will mostly stay the same while the visual design will change more easily.
+Furthermore I focus on the **DRY** approach: Redundant CSS rules (on purpose or accidentally) will lead to less flexibility when it comes to change requests or bug fixes. I aim to apply a CSS rule to most sections of a website as possible (e.g. style definitions of continuous text). It's easier to add exceptions once they are really needed than to remove or maintain complex CSS structures.
 
-Last but not least, **consistency** helps everyone, who has to work on the same code base. 
+Last but not least, **consistency** helps me (and everyone else, who works with the code) to keep a clear head and overview.
 
 ---
 
