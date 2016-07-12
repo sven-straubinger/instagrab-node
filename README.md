@@ -1,7 +1,7 @@
 # instagrab-node
 An application for an application – written in [Node.js](https://nodejs.org/en/) and [React](https://facebook.github.io/react/).
 
-## How to use
+## How to use instagrab
 
 * **Right click** on the map to grab the latest instagram posts near this location.
 * Like or Unlike a post by **clicking on the marker**.
