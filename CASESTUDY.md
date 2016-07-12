@@ -1,5 +1,10 @@
 ### Question 1: What are the latest CSS layout methods?
 
+Depending on, how `latest` is interpreted:
+* the latest CSS **drafts** from the W3C can be found here:  http://www.w3.org/Style/CSS/current-work
+* the latest CSS **releases** from the W3C ... TBD
+* the latest CSS **widely supported** (by all major browsers) ... TBD
+
 ### Question 2: What are the CSS methodologies you use to structure your CSS and why is this important to you?
 
 ### Question 3: What are your thoughts on nesting using a CSS pre-processor?
