@@ -18,13 +18,13 @@ Last but not least, **consistency** helps me (and everyone else, who works with 
 
 ### Question 3: What are your thoughts on nesting using a CSS pre-processor?
 
-Nesting helps, to write maintainable and clean CSS rules with focus on readability and less complexity by avoiding redundancy. But one has to be careful about the depth of nesting: a high level of nested structures genereates larger CSS files. This increases download time as well as rendering/painting within the browser. Furthermore, a high level of nested structures contradicts the prinicple of global and universal CSS rules.
+Nesting helps, to write maintainable and clean CSS rules with a focus on readability and less complexity by avoiding redundancy. But one has to be careful about the depth of nesting: a high level of nested structures generates larger CSS files. This increases download time as well as rendering/painting within the browser. Furthermore, a high level of nested structures contradicts the principle of global and universal CSS rules.
 
 ---
 
 ### Question 4: What is your preferred toolset when building a React app?
-* Node
 * SCM like Git
+* Node.js
 * npm with Browserify / Watchify / Babelify for JSX
 * Sublime3
 * Google Chrome with React Developer Tools
