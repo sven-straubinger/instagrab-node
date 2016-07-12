@@ -55,22 +55,22 @@ var App = React.createClass({
     });
 
     this.requestUrl(url, 'GET', function(result) {
-      var markerInfos = [];
+      var posts = [];
       var data = result.data;
 
       for(var index in data) {
-        var post = data[index];
-        var markerInfo = {
-          id: post.id,
-          lat: post.location.latitude,
-          lng: post.location.longitude,
-          thumbnail: post.images.thumbnail.url,
-          userHasLiked: post.user_has_liked
+        var json = data[index];
+        var post = {
+          id: json.id,
+          lat: json.location.latitude,
+          lng: json.location.longitude,
+          thumbnail: json.images.thumbnail.url,
+          userHasLiked: json.user_has_liked
         }
-        markerInfos.push(markerInfo);
+        posts.push(post);
       }
 
-      this.setState({markerInfos: markerInfos});
+      this.setState({markerInfos: posts});
 
     });
   },
