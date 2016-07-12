@@ -8,43 +8,26 @@ An application for an application – written in [Node.js](https://nodejs.org/en
 * Please note the instagram client runs in `sandbox-mode`, which results in a limited result-set of the sandbox-user. [Learn more about this restriction](https://www.instagram.com/developer/sandbox/).
 * Please note: the app works best with Safari due `Access-Control-Allow-Origin` issues in other browsers.
 
+
 ## Quickstart
 
-```
-TBD
-1. Provide a valid access-token for instagram
-2. checkout project
-3. npm install
-4. browserify && watchify -g
-5. npm start --> developing and hot compiling
-6. npm build --> just building
-7. open index.html
-```
+1. checkout project `git clone https://github.com/sven-straubinger/instagrab-node.git instagrab-node`
+2. run `npm install`
+3  run `rum start`
+4. open index.html
+
 
 ## Prerequisites
 
-```
-TBD
-```
+1. npm and node.js installed
+2. browserify installed: `npm install browserify -g`
+3. watchify installed: `npm install watchify -g`
+
 
 ## Screen
 
 ![Alt text](/public/images/instagrab-screenshot.png?raw=true "Optional Title")
 
-## Notes
-
-* it makes use of `ECMAScript 2016`
-* JSX syntax is converted with [Babel](https://babeljs.io)
-* build your bundle with `browserify`: `browserify -t [ babelify ] main.js -o build/bundle.js`
-  * if `browserify` is not installed, use `npm install browserify -g`
-  * see [http://browserify.org] for detailed information
-* Bootstrap simpliy integrated via BootstrapCDN
-* it's highly recommended to use [React Developer Tools](https://facebook.github.io/react/blog/2015/09/02/new-react-developer-tools.html)
-* The app won't work with Google Chrome, since the pure frontend-logic and cross-domain AJAX calls are prohibited by Chromes `Access-Control-Allow-Origin` policy. Please use another browser instead.
-
-```
-Note: By default, React will be in development mode, which is slower, and not advised for production. To use React in production mode, set the environment variable NODE_ENV to production (using envify or webpack's DefinePlugin).
-```
 
 ## Components
 
