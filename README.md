@@ -19,9 +19,9 @@ An application for an application – written in [Node.js](https://nodejs.org/en
 
 ## Prerequisites
 
-1. npm and node.js installed
-2. browserify installed: `npm install browserify -g`
-3. watchify installed: `npm install watchify -g`
+1. npm and Node.js installed
+2. browserify globally installed: `npm install browserify -g`
+3. watchify globally installed: `npm install watchify -g`
 
 
 ## Screen
