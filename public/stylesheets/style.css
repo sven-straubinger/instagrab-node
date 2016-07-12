@@ -17,7 +17,7 @@ header nav.navbar.navbar-inverse {
     width: 100%;
     top: 50px;
     left: 0;
-    background-color: rgb(235,75,89);
+    background-color: #00a091;
     z-index: 10;
     height: 0;
     overflow: hidden;
