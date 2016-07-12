@@ -39,6 +39,8 @@ Nesting helps, to write maintainable and clean CSS rules with focus on readabili
 
 ### Question 6: What tools or libraries do you use when testing react components?
 
+`require('react-addons-test-utils')` – but honestly never used it.
+
 ---
 
 ### Question 7: What is your experience with stateless (functional) components, and when would you either use them, or not use them?
