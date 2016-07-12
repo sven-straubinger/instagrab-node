@@ -2,8 +2,7 @@
 
 Depending on, how `latest` is interpreted:
 * the latest CSS **drafts** from the W3C can be found here:  http://www.w3.org/Style/CSS/current-work
-* the latest CSS **releases** from the W3C ... TBD
-* the latest **widely supported** CSS features (by all major browsers) ... TBD
+* the latest CSS **publications** from the W3C contains CSS3 features like `media queries`, `keyframe animations` or `transforms` and can be found here: http://www.w3.org/TR/css-2010/
 
 ---
 
