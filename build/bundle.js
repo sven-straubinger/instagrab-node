@@ -17,7 +17,7 @@ var App = React.createClass({
 
       /*
        * NOTE:
-       * Even though our access tokens do not specify an expiration time,
+       * Even though Instagram's access tokens do not specify an expiration time,
        * the app should handle the case that either the user revokes access,
        * or Instagram expires the token after some period of time.
        *
