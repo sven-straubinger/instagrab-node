@@ -3,14 +3,17 @@
 Depending on, how `latest` is interpreted:
 * the latest CSS **drafts** from the W3C can be found here:  http://www.w3.org/Style/CSS/current-work
 * the latest CSS **releases** from the W3C ... TBD
-* the latest CSS **widely supported** (by all major browsers) ... TBD
+* the latest **widely supported** CSS features (by all major browsers) ... TBD
 
 ### Question 2: What are the CSS methodologies you use to structure your CSS and why is this important to you?
 
 ### Question 3: What are your thoughts on nesting using a CSS pre-processor?
 
+Nesting helps, to write maintainable and clean CSS rules with focus on readability and less complexity by avoiding redundancy. But one has to be careful about the depth of nesting: a high level of nested structures genereates larger CSS files. This increases download time as well as rendering/painting within the browser. Furthermore, a high level of nested structures contradicts the prinicple of global and universal CSS rules.
+
 ### Question 4: What is your preferred toolset when building a React app?
-* Node.js with Browserify / Watchify / Babelify for JSX
+* Node
+* npm with Browserify / Watchify / Babelify for JSX
 * Sublime3
 * Google Chrome with React Developer Tools
 * iTerm2 
