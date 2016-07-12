@@ -18,6 +18,7 @@ var Map = React.createClass({
       center: {lat: 52.522307, lng: 13.399151},
       zoom: 12,
       draggableCursor:'crosshair',
+      mapTypeControl: false,
       styles: [{
         featureType: "poi",
         elementType: "labels",
