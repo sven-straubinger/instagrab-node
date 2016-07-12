@@ -75,39 +75,39 @@ var App = React.createClass({
     });
   },
 
-  handleLike: function(markerInfo) {
-    if(markerInfo.userHasLiked) {
-      this.unlikePost(markerInfo);
+  handleLike: function(post) {
+    if(post.userHasLiked) {
+      this.unlikePost(post);
     } else {
-      this.likePost(markerInfo);
+      this.likePost(post);
     }
   },
 
-  likePost: function(markerInfo) {
-    var url = App.instagram.likeEndpoint(markerInfo.id);
+  likePost: function(post) {
+    var url = App.instagram.likeEndpoint(post.id);
     this.requestUrl(url, 'POST', function(result) {
-      this.updateUserHasLiked(markerInfo, true);
+      this.updateUserHasLiked(post, true);
     },{
       access_token: App.instagram.accessToken
     });
   },
 
-  unlikePost: function(markerInfo) {
+  unlikePost: function(post) {
     var parameters = {
       access_token: App.instagram.accessToken
     }
-    var url = App.instagram.likeEndpoint(markerInfo.id) + "?" + jQuery.param(parameters);
+    var url = App.instagram.likeEndpoint(post.id) + "?" + jQuery.param(parameters);
     this.requestUrl(url, 'POST', function(result) {
-      this.updateUserHasLiked(markerInfo, false);
+      this.updateUserHasLiked(post, false);
     });
   },
 
-  updateUserHasLiked: function(markerInfo, hasLiked) {
+  updateUserHasLiked: function(post, hasLiked) {
     // Make use of Immutability Helpers
     // https://facebook.github.io/react/docs/update.html
     var markerInfos = this.state.markerInfos;
     var markerIndex = markerInfos.findIndex(function(m) {
-      return m.id == markerInfo.id;
+      return m.id == post.id;
     });
 
     var updatedMarkerInfo  = update(markerInfos[markerIndex], {userHasLiked: {$set: hasLiked}});
