@@ -42,8 +42,15 @@ App: (Glues everything together; takes care of API calls)
 
 ## Instagram Policy / API Restrictions
 
-Since November 17th 2015, Instagram changed their API. Now users cannot use the full scope as before, an access-token is required for every request. Clients consum the instagram API in sandbox-mode, what means they can only see their own content and content up to 10 sandbox users.
+After Nov. 17 2015 Instagram made some changes to their API. Apps created on or after Nov 17, 2015 will start in Sandbox Mode and function on newly updated API rate-limits and behaviors:
 
+``
+Data is restricted to sandbox users and the 20 most recent media from each sandbox user.
+[]
+As another example, let's consider an endpoint that returns a list of media: /tags/{tag-name}/media/recent. The response returned by this endpoint will contain only media with the given tag, as expected. But instead of returning media from any public Instagram user, it will return only media that belongs to your sandbox users, restricted to the last 20 for each user.
+```
+
+https://www.instagram.com/developer/sandbox/
 
 ## Outlook
 
